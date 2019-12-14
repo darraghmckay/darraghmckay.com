@@ -1,0 +1,19 @@
+.blog {
+  background: $color-white;
+  border-radius: 4px;
+  border: 1px solid $color-great-white;
+
+  &:hover {
+    border-color: $color-slinky;
+  }
+
+  .date {
+    min-width: 100px;
+  }
+}
+
+.blog-page {
+  header {
+    min-height: 50vh;
+  }
+}

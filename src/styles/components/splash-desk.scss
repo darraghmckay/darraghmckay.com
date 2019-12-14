@@ -1,0 +1,491 @@
+.splash-cover {
+	@media (min-width: 768px) {
+		text-align: left;
+	}
+	position: relative;
+	background-color: $splash-bg;
+	text-align: center;
+	width:100%;
+	max-height:450px;
+	height:62vh;
+	overflow: hidden;
+	$tableColor: #f1f1f1;
+	$monitorColor: #222;
+	$chairColor:#333;
+	$laptopBase: #9E9E9E;
+	$laptopScreen: #002833;
+	$laptopBesel:#BDBDBD;
+	$animationTime: 18s infinite linear;
+	$deskDropAnimation: 1s ease;
+	$clockHourAnim: 120s infinite linear;
+	$clockMinAnimation: 10s infinite linear;
+	$codeInsert: 20s ease;
+	$screenShotHeight: 581px;
+	$clockSize: 60px;
+	.deskContainer {
+		top: 300px;
+		position: relative;
+		-webkit-animation: deskDropDown $deskDropAnimation;
+		-moz-animation: deskDropDown $deskDropAnimation;
+		-o-animation: deskDropDown $deskDropAnimation;
+		animation: deskDropDown $deskDropAnimation;
+	}
+	.deskDiv {
+		width: 500px;
+		height: 300px;
+		position: relative;
+		margin-left: -250px;
+		left: 50%;
+		top: 2vh;
+		-moz-transform: scale(0.7);
+		-ms-transform: scale(0.7);
+		-o-transform: scale(0.7);
+		transform: scale(0.7);
+		@media (min-width: 600px) {
+			-moz-transform: scale(0.85);
+			-ms-transform: scale(0.85);
+			-o-transform: scale(0.85);
+			transform: scale(0.85);
+		}
+		@media (min-width: 768px) {
+			-moz-transform: scale(1);
+			-ms-transform: scale(1);
+			-o-transform: scale(1);
+			transform: scale(1);
+		}
+	}
+	.person {
+		$headSize: 80px;
+		width: $headSize;
+		height: $headSize;
+		border-radius: 50%;
+		position: absolute;
+		background-color: #111;
+		left: 220px;
+		top: 140px;
+	}
+	.chair {
+		width: 160px;
+		height: 170px;
+		background-color: $chairColor;
+		position: absolute;
+		top: 200px;
+		left: 180px;
+		border-radius: 40px/180px;
+		border-bottom-left-radius: 30px;
+		border-bottom-right-radius: 30px;
+	}
+	.chair:after {
+		content: "";
+		width: 25px;
+		height: 90px;
+		background-color: $chairColor;
+		position: absolute;
+		top: 150px;
+		left: 65px;
+		border-radius: 20px;
+	}
+	.chair:before {
+		content: "";
+		width: 100%;
+		height: 20px;
+		left: 0px;
+		background-color: $chairColor;
+		position: absolute;
+		bottom: -10px;
+		border-radius: 180px/180px;
+		border-top-left-radius: 50px;
+		border-top-right-radius: 50px;
+	}
+	.clock {
+		width: $clockSize;
+		height: $clockSize;
+		border-radius: 50%;
+		border: solid 5px $color-red;
+		position: absolute;
+		background-color: #fff;
+		top: 40px;
+		right: 40px;
+		.hand {
+			width: 4px;
+			height: $clockSize /2 - 12px;
+			background-color: #000;
+			left: $clockSize / 2 - 6px;
+			position: absolute;
+			bottom: $clockSize /2 - 6px;
+			transform-origin: 50% 100%;
+			-webkit-animation: clockHourAnimation $clockHourAnim;
+			-moz-animation: clockHourAnimation $clockHourAnim;
+			-o-animation: clockHourAnimation $clockHourAnim;
+			animation: clockHourAnimation $clockHourAnim;
+		}
+		.minhand {
+			content: "";
+			width: 2px;
+			height: $clockSize /2 - 8px;
+			background-color: #000;
+			left: $clockSize / 2 - 6px;
+			position: absolute;
+			bottom: $clockSize /2 - 6px;
+			transform-origin: 50% 100%;
+			-webkit-animation: clockHourAnimation $clockMinAnimation;
+			-moz-animation: clockHourAnimation $clockMinAnimation;
+			-o-animation: clockHourAnimation $clockMinAnimation;
+			animation: clockHourAnimation $clockMinAnimation;
+		}
+	}
+	.clock:before {
+		content: "";
+		position: absolute;
+		$centerDot: 6px;
+		width: $centerDot;
+		height: $centerDot;
+		left: $clockSize/2 - $centerDot - 1px;
+		top: $clockSize/2 - $centerDot - 1px;
+		border-radius: 50%;
+		background-color: #000;
+	}
+	.laptop {
+		bottom: 41px;
+		background-color: $laptopBesel;
+		height: 90px;
+		width: 135px;
+		position: absolute;
+		right: 80px;
+		border-radius: 5px 5px 3px 3px;
+		box-shadow: -8px 8px 38px 0 rgba(1, 1, 1, .53);
+		.laptopScreen {
+			background: $laptopScreen;
+			border-radius: 3px;
+			width: 115px;
+			height: 70px;
+			top: 10px;
+			left: 10px;
+			position: absolute;
+			overflow: hidden;
+			code,
+			pre {
+				font-family: "Courier New" Courier monospace;
+				color: #839496;
+				background: $laptopScreen;
+				font-size: 6px;
+				padding: 0px;
+			}
+		}
+	}
+	.laptop:after {
+		content: "";
+		position: absolute;
+		height: 10px;
+		width: 135px;
+		left: 0px;
+		bottom: -10px;
+		background-color: $laptopBase;
+		border-radius: 2px 2px 4px 4px
+	}
+	.monitor {
+		position: absolute;
+		width: 200px;
+		height: 120px;
+		left: 30px;
+		bottom: 60px;
+		background-color: $monitorColor;
+		border-radius: 3px;
+		.monitorScreen {
+			background: #333;
+			width: 190px;
+			height: 110px;
+			top: 5px;
+			left: 5px;
+			position: absolute;
+		}
+	}
+	.monitor:before //monitor vertical stand
+	{
+		$monitor-width: 150px;
+		content: "";
+		position: absolute;
+		width: $monitor-width/4;
+		height: 20px;
+		bottom: -20px;
+		left: (200px - $monitor-width/4)/2;
+		background-color: $monitorColor;
+	}
+	.monitor:after //monitor base
+	{
+		$monitor-width: 150px;
+		content: "";
+		position: absolute;
+		width: $monitor-width;
+		height: 10px;
+		bottom: -30px;
+		left: (200px - $monitor-width) / 2;
+		background-color: $monitorColor;
+		border-radius: 3px 3px 0 0;
+	}
+	.table {
+		width: 100%;
+		height: 30px;
+		background: $tableColor;
+		border-radius: 2px;
+		position: absolute;
+		bottom: 0px;
+		box-shadow: 6px 6px 15px 0 #919191;
+	}
+	$color: #2c3e50;
+	.browser {
+		background-color: #f1f1f1;
+		width: 190px;
+		height: 110px;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow: hidden;
+		opacity: .999;
+		border-radius: 2px;
+		box-shadow: -8px 8px 38px 0 rgba(1, 1, 1, .53);
+		.status-bar {
+			background-color: #ccc;
+			width: 100%;
+			height: 10px;
+			position: relative;
+			z-index: 10;
+			.buttons {
+				background-color: #df7065;
+				width: 6px;
+				height: 6px;
+				margin-top: -4px;
+				position: absolute;
+				top: 50%;
+				left: 4px;
+				border-radius: 50%;
+				&:before,
+				&:after {
+					content: '';
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					border-radius: 50%;
+				}
+				&:before {
+					background-color: #e6c646;
+					left: 13px;
+				}
+				&:after {
+					background-color: #5bcc8b;
+					left: 26px;
+				}
+			}
+		}
+		.tab-bar {
+			background-color: #e6e6e6;
+			width: 100%;
+			height: 5px;
+			position: relative;
+			z-index: 10;
+			&:before {
+				content: '';
+				width: 82px;
+				position: absolute;
+				bottom: 100%;
+				left: 55px;
+				border-width: 0 5px 14px 5px;
+				border-style: solid;
+				border-color: transparent;
+				border-bottom-color: #e6e6e6;
+			}
+		}
+		.window {
+			overflow-y: hidden;
+			width: 100%;
+			height: 100px;
+			overflow: hidden;
+			position: relative;
+			.loader {
+				display: none;
+				background-color: #f1f1f1;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				&:before {
+					content: '';
+					width: 20px;
+					height: 20px;
+					margin: auto;
+					border: 5px dashed $color;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					border-radius: 50%;
+					animation: spin 1s linear infinite;
+				}
+			}
+			img {
+				width: 190px;
+				-webkit-animation: scrollDown $animationTime;
+				-moz-animation: scrollDown $animationTime;
+				-o-animation: scrollDown $animationTime;
+				animation: scrollDown $animationTime;
+			}
+		}
+		&.loading .window .loader {
+			//display: block;
+		}
+	}
+	$scrollDepth : $screenShotHeight - 100px;
+	@-webkit-keyframes scrollDown {
+		0% {
+			//-webkit-transform: translateY($scrollDepth);
+		}
+		50% {
+			-webkit-transform: translateY(-$scrollDepth);
+		}
+		100% {
+			//   
+		}
+	}
+	@keyframes scrollDown {
+		0% {
+			//-moz-transform: translateY($scrollDepth);
+		}
+		50% {
+			transform: translateY(-$scrollDepth);
+		}
+		100% {
+			//   
+		}
+	}
+	@-moz-keyframes scrollDown {
+		0% {
+			//-moz-transform: translateY($scrollDepth);
+		}
+		50% {
+			-moz-transform: translateY(-$scrollDepth);
+		}
+		100% {
+			//   
+		}
+	}
+	@-o-keyframes scrollDown {
+		0% {
+			//-o-transform: translateY($scrollDepth);
+		}
+		50% {
+			-o-transform: translateY(-$scrollDepth);
+		}
+		100% {
+			//   
+		}
+	}
+	@-webkit-keyframes deskDropDown {
+		0% {
+			-webkit-transform: translateY(-800px);
+		}
+		100% {
+			//  -webkit-transform: translateY(0);  
+		}
+	}
+	@keyframes deskDropDown {
+		0% {
+			transform: translateY(-800px);
+		}
+		100% {
+			//  -webkit-transform: translateY(0);  
+		}
+	}
+	@-moz-keyframes deskDropDown {
+		0% {
+			-moz-transform: translateY(-800px);
+		}
+		100% {
+			//  -webkit-transform: translateY(0);  
+		}
+	}
+	@-o-keyframes deskDropDown {
+		0% {
+			-o-transform: translateY(-800px);
+		}
+		100% {
+			//  -webkit-transform: translateY(0);  
+		}
+	}
+	@-webkit-keyframes clockHourAnimation {
+		0% {
+			-webkit-transform: rotateX(0deg);
+			-webkit-transform: rotateZ(0deg);
+		}
+		100% {
+			-webkit-transform: rotateZ(359deg);
+		}
+	}
+	@keyframes clockHourAnimation {
+		0% {
+			transform: rotateX(0deg);
+			transform: rotateZ(0deg);
+		}
+		100% {
+			transform: rotateZ(359deg);
+		}
+	}
+	@-moz-keyframes clockHourAnimation {
+		0% {
+			-moz-transform: rotateX(0deg);
+			-moz-transform: rotateZ(0deg);
+		}
+		100% {
+			-moz-transform: rotateZ(359deg);
+		}
+	}
+	@-o-keyframes clockHourAnimation {
+		0% {
+			-o-transform: rotateX(0deg);
+		}
+		100% {
+			-o-transform: rotateZ(359deg);
+		}
+	}
+}
+
+
+
+.work-cover{
+	background-size: cover;
+	background-position: center;
+	height: 100%;
+	min-height: 200px;
+	margin-top: 50px;
+
+	.browser{
+		position: relative;
+		width: 100%;
+		height:100%;
+		box-shadow: 0px 8px 38px 0 rgba(1, 1, 1, 0.53);
+
+		.status-bar{
+			height:20px;
+		}
+		.window{
+			height:100%;
+			overflow-y:hidden;
+				img{
+					width:100%;
+						/*Disable CSS animations*/
+					 -webkit-animation: none !important;
+					 -moz-animation: none !important;
+					 -o-animation: none !important;
+					 -ms-animation: none !important;
+					 animation: none !important;
+				}
+		}
+	}
+
+}

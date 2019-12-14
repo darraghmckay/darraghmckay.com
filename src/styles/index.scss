@@ -1,0 +1,99 @@
+@import "./tailwind/tailwind";
+
+$font-color: #33475b;
+$span-color: #555;
+$color-pantera: #2d3e50;
+$color-heffalump: #425b76;
+$color-battleship: #cbd6e2;
+$color-great-white: #dfe3eb;
+$color-koala: #eaf0f6;
+$color-slinky: #516f90;
+$secondary-color: #727272;
+$employer-font-color: #727272;
+$cv-border: #fff;
+
+$color-baby-blue: #2c97de;
+$color-dark-blue: #3F51B5;
+
+$color-white :#FFFFFF;
+$color-red :#f44336;
+
+$splash-bg: $color-battleship;
+
+span, p, h1, h2, h3, h4, h5, h6, ul, li {
+  color: $font-color;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 { 
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 24px;  
+}
+
+h2 {
+  font-size: 32px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+.page-body svg[class*="fa"] {
+  color: $font-color;
+}
+
+button, .button {
+  background: $color-heffalump;
+  border: solid 1px $color-heffalump;
+  border-radius: 4px;
+  color: $color-white;
+  margin: 4px 8px;
+  padding: 8px 16px;
+
+  &:hover {
+    background: $color-slinky;
+  }
+
+  &.secondary {
+    background: $color-white;
+    border: solid 1px $color-white;
+    color: $color-heffalump;
+
+    &:hover {
+      background: $color-battleship;
+      border: solid 1px $color-heffalump;
+    }
+  }
+}
+
+.intro-rect {
+  min-height: 450px;
+}
+
+.footer {
+  background: $color-pantera;
+
+  a, span, svg {
+    color: $color-white !important;
+  }
+}
+
+@import "./components/blog";
+@import "./components/projects";
+@import "./components/skills";
+@import "./components/splash-desk";

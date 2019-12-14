@@ -1,0 +1,25 @@
+.skills {
+  background: $color-koala;
+
+  .skill-item {
+    border-left: 2px solid $color-slinky;
+
+    &:hover {
+      border-left: 2px solid $color-heffalump;
+    }
+
+    .skill-percentage {
+      border-radius: 6px;
+      background: $color-white;
+      height: 20px;
+
+      div {
+        background: $color-slinky;
+        border-radius: 6px;
+        display: block;
+        height: 100%;
+        transform: width 500ms ease-out;
+      }
+    }
+  }
+}
