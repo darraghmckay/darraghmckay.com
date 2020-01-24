@@ -43,7 +43,10 @@ const Skills = () => {
             />
             <h3 className="mt-6">Experience</h3>
             {experienceList.map(experience => (
-              <Experience key={experience.title} {...experience} />
+              <Experience
+                key={`${experience.title} - ${experience.subTitle}`}
+                {...experience}
+              />
             ))}
           </div>
           <div className="my-4 w-full sm:w-1/2">

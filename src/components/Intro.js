@@ -45,10 +45,13 @@ const Intro = () => {
     <React.Fragment>
       <div className="text-center my-12 uppercase inline-block w-full">
         <h1 className="intro-rect leading-none flex flex-col justify-center mx-auto">
-          <RectText text={languages[langIndex]} width={400} />
+          <RectText
+            text={languages[langIndex]}
+            width={Math.min(400, Math.round(window.innerWidth * 0.7))}
+          />
         </h1>
       </div>
-      <div className="w-full flex flex-row justify-around my-12 uppercase inline-block">
+      <div className="w-full flex flex-row flex-wrap justify-around my-12 uppercase inline-block">
         {introItems.map(({ icon, subTitle, title }) => (
           <div className="mx-4 text-center" key={title}>
             <FontAwesomeIcon className="my-4" icon={icon} size="8x" />

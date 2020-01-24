@@ -23,8 +23,24 @@
     background-color: $splash-bg;
   }
 
+  h1 {
+    font-size: 32px;
+    padding: 0 16px;
+  }
+
   .splash-cover {
-    min-height: 65vh;
+    height: 45vh;
+  }
+
+  @media only screen and (min-width: $breakpoint-md) {
+    h1 {
+      font-size: 50px;
+      padding: 0 32px;
+    }
+
+    .splash-cover {
+      height: 65vh;
+    }
   }
 
   .body {

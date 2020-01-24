@@ -6,7 +6,7 @@ import blogEntries from '../data/blog';
 const BlogList = ({ count }) => (
   <div className="py-8 flex-col inline-block w-full">
     <h2 className="text-center">My Blog</h2>
-    <div className="my-4 mx-auto w-full lg:max-w-2xl flex flex-row flex-wrap">
+    <div className="my-4 px-2 md:px-8 mx-auto w-full lg:max-w-2xl flex flex-row flex-wrap">
       {blogEntries
         .slice(0, count)
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))

@@ -1,8 +1,13 @@
 export default [
   {
-    title: 'Frontent Software Engineer',
+    title: 'Frontend Software Engineer',
+    subTitle: 'Inscribe AI, Dublin',
+    dateRange: 'January 2019 - Present',
+  },
+  {
+    title: 'Frontend Software Engineer',
     subTitle: 'HubSpot, Dublin',
-    dateRange: 'August 2018 - Present',
+    dateRange: 'August 2018 - January 2019',
   },
   {
     title: 'Software Engineering Co-Op',
@@ -23,10 +28,5 @@ export default [
     title: "Student's Union Class Representative",
     subTitle: "Trinity Student's Union",
     dateRange: '2 Terms | 2013 - 2015',
-  },
-  {
-    title: 'Youth Club Leader (As Gaeilge)',
-    subTitle: 'Cumman Na bhFiann',
-    dateRange: '2012 - 2014',
   },
 ];

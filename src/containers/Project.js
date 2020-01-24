@@ -15,7 +15,7 @@ const ProjectPage = ({
         <h1>{project.title}</h1>
         <h3>{project.subTitle}</h3>
         {(project.href || project.sourceCode) && (
-          <div className="mt-8 flex-row">
+          <div className="mt-8 mb-1 md:mb-12 flex-row">
             {project.href && (
               <a
                 className="button"
@@ -49,7 +49,7 @@ const ProjectPage = ({
           </div>
         )}
         <div className="splash-cover mt-6">
-          <div className="work-cover mx-auto max-w-4xl monitorScreen">
+          <div className="work-cover mt-0 mx-auto max-w-4xl monitorScreen">
             <div className="browser loading">
               <div className="status-bar">
                 <div className="buttons"></div>
@@ -68,7 +68,7 @@ const ProjectPage = ({
         </div>
       </header>
       <div className="page-body w-full mx-auto my-12">
-        <div className="mx-auto max-w-2xl body">
+        <div className="mx-auto max-w-2xl px-4 md:px-0 body">
           <span className="block mb-4">{project.createdAt}</span>
           {project.body()}
         </div>
