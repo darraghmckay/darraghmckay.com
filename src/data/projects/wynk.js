@@ -1,4 +1,7 @@
 import React from 'react';
+import img from '../../imgs/wynk.png';
+import coverImg from '../../imgs/wynk-cover.png';
+import wynkCoverCroppedImage from '../../imgs/wynk-cover-cropped.png';
 import { APP_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -7,8 +10,8 @@ export default {
   href: 'https://getwynk.com',
   path: 'wynk',
   createdAt: '2018-02-21',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/wynk.png',
-  coverImg: 'https://darraghmckay.com:443/couch/uploads/image/wynk-cover.png',
+  img,
+  coverImg,
   category: APP_DEVELOPMENT,
   color: '#2cc3b6',
   body: () => (
@@ -42,10 +45,7 @@ export default {
           same things, you Match. Now it's up to you to get chatting
         </li>
       </ol>
-      <img
-        alt="Wynk - Dating App"
-        src="https://darraghmckay.com:443/couch/uploads/image/wynk-cover-cropped.png"
-      />
+      <img alt="Wynk - Dating App" src={wynkCoverCroppedImage} />
       <p>
         The app is no longer in development, but can still be downloaded from
         here<a href="https://getwynk.com">https://getwynk.com</a>

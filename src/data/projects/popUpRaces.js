@@ -1,4 +1,8 @@
 import React from 'react';
+import img from '../../imgs/purbanner.jpg';
+import coverImg from '../../imgs/popupraces-cover.png';
+import purBlogImage from '../../imgs/pur-blog.jpg';
+import purResultsImage from '../../imgs/pur-results.jpg';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -7,9 +11,8 @@ export default {
   href: 'https://popupraces.ie',
   path: 'pop-up-races',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/purbanner.jpg',
-  coverImg:
-    'https://darraghmckay.com:443/couch/uploads/image/popupraces_full_2.png',
+  img,
+  coverImg,
   category: WEB_DEVELOPMENT,
   color: '#002a46',
   body: () => (
@@ -133,9 +136,9 @@ export default {
         but that's a good thing, because it means I've learnt something over the
         last 2 years.
       </p>
-      <img src="https://darraghmckay.com:443/couch/uploads/image/pur_blog.JPG" />
+      <img src={purBlogImage} />
       <p className="text-center">Wordpress Blog</p>
-      <img src="https://darraghmckay.com:443/couch/uploads/image/pur_results.JPG" />
+      <img src={purResultsImage} />
       <p className="text-center">
         Results Page - Including Filtering By Category / Sex / Distance and
         Keyword

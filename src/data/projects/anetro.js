@@ -1,4 +1,6 @@
 import React from 'react';
+import img from '../../imgs/anetroSquare.jpg';
+import coverImg from '../../imgs/kain.png';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -7,9 +9,8 @@ export default {
   href: 'https://anetro.com',
   path: 'anetro',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/anetro_square-1.jpg',
-  coverImg:
-    'https://darraghmckay.com:443/couch/uploads/image/screencapture-localhost-kain-tcd-issues-1448494106385.png',
+  img,
+  coverImg,
   category: WEB_DEVELOPMENT,
   color: '#1ABC9C',
   body: () => (

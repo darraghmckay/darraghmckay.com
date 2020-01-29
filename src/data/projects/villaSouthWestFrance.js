@@ -1,4 +1,6 @@
 import React from 'react';
+import img from '../../imgs/villasouthwestfrance.jpg';
+import coverImg from '../../imgs/villa-cover.png';
 import { WEB_DESIGN } from '../../constants/blogCategories';
 
 export default {
@@ -6,9 +8,8 @@ export default {
   subTitle: 'Holiday Villa Rental Showcase',
   path: 'villa-south-west-france',
   createdAt: '2015-11-23',
-  img:
-    'https://darraghmckay.com:443/couch/uploads/image/villasouthwestfrance.jpg',
-  coverImg: 'https://darraghmckay.com:443/couch/uploads/image/villa_full.png',
+  img,
+  coverImg,
   category: WEB_DESIGN,
   color: '#2196F3',
   body: () => <div />,

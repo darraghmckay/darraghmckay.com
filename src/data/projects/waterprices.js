@@ -1,4 +1,8 @@
 import React from 'react';
+import img from '../../imgs/waterprices.jpg';
+import coverImg from '../../imgs/waterprices-cover.png';
+import waterpricesAppImage from '../../imgs/waterprices-app.png';
+import waterpricesResponsiveImage from '../../imgs/waterprices-responsive.jpg';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -6,9 +10,8 @@ export default {
   subTitle: 'Water Charges Calculator Web App',
   path: 'waterprices',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/waterprices.jpg',
-  coverImg:
-    'https://darraghmckay.com:443/couch/uploads/image/water_full-2.png',
+  img,
+  coverImg,
   category: WEB_DEVELOPMENT,
   color: '#E91E63',
   body: () => (
@@ -50,7 +53,7 @@ export default {
         unique hits in its first weekend. Some people were shocked at how little
         it was going to cost them, others were shocked at how much.
       </p>
-      <img src="http://darraghmckay.com/couch/uploads/image/water_screen.PNG" />
+      <img src={waterpricesAppImage} />
       <h3>How its built</h3>
       <p>
         The actual calculator is built in Javascript, using session storage. The
@@ -67,7 +70,7 @@ export default {
       <img
         alt="Responsive Examples of Waterprices.ie"
         className="noshadow"
-        src="http://darraghmckay.com/couch/uploads/image/responsive_water_prices.jpg"
+        src={waterpricesResponsiveImage}
       />
     </div>
   ),

@@ -1,4 +1,9 @@
 import React from 'react';
+import dinoRunImage from '../../imgs/dino-run.jpg';
+import oneProgrammeImage from '../../imgs/one-prog.jpg';
+import waterPricesImage from '../../imgs/waterprices.jpg';
+import mapImage from '../../imgs/map.jpg';
+
 import * as BlogCategories from '../../constants/blogCategories';
 
 export default [
@@ -10,10 +15,7 @@ export default [
 
     body: () => (
       <React.Fragment>
-        <img
-          alt="Q-Learning T-Rex From Chrome Browser"
-          src="https://darraghmckay.com:443/couch/uploads/image/dino_run.JPG"
-        />
+        <img alt="Q-Learning T-Rex From Chrome Browser" src={dinoRunImage} />
 
         <p>
           After messing around with some Q-Learning stuff during the summer, and
@@ -1185,7 +1187,7 @@ export default [
     path: 'introducing-oneprogram-me',
     createdAt: '2015-02-15',
     category: BlogCategories.WEB_DESIGN,
-    image: 'https://darraghmckay.com:443/couch/uploads/image/oneprog.JPG',
+    image: oneProgrammeImage,
 
     body: () => (
       <React.Fragment>
@@ -1302,7 +1304,7 @@ export default [
     path: 'waterprices-ie-update',
     createdAt: '2014-11-23',
     category: BlogCategories.WEB_DESIGN,
-    image: 'https://darraghmckay.com:443/couch/uploads/image/waterprices.jpg',
+    image: waterPricesImage,
 
     body: () => (
       <React.Fragment>
@@ -1586,7 +1588,7 @@ export default [
     path: 'departing-cycle-trip-part-1',
     createdAt: '2014-08-05',
     category: BlogCategories.TRAVEL,
-    image: 'https://darraghmckay.com:443/couch/uploads/image/map.JPG',
+    image: mapImage,
 
     body: () => (
       <React.Fragment>

@@ -1,4 +1,5 @@
 import React from 'react';
+import portfolioImage from '../imgs/portfolio-fullscreen.png';
 
 const code = `
 import { List } from 'immutable';
@@ -63,7 +64,7 @@ const DeskHeader = () => (
                   <img
                     alt="scroll-preivew"
                     id="scroll-img"
-                    src="screenshot2.png"
+                    src={portfolioImage}
                     draggable="false"
                     className="scroll-img"
                   />

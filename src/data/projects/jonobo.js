@@ -1,4 +1,7 @@
 import React from 'react';
+import img from '../../imgs/jonobo-portfolio-cover.png';
+import coverImg from '../../imgs/jonobo-cover.png';
+import jonoboPhoneImage from '../../imgs/jonobo-phone.png';
 import { APP_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -7,9 +10,8 @@ export default {
   href: 'https://jonobo.darraghmckay.com/',
   path: 'jonobo',
   createdAt: '2019-02-10',
-  img:
-    'https://darraghmckay.com:443/couch/uploads/image/jonobo-portfolio-cover-1.png',
-  coverImg: 'https://darraghmckay.com:443/couch/uploads/image/cover.png',
+  img,
+  coverImg,
   category: APP_DEVELOPMENT,
   color: '#6d57ea',
   downloadLink:
@@ -34,7 +36,7 @@ export default {
         getting ready for a big night on the town, this game is the perfect
         addition to your evening.
       </p>
-      <img src="https://darraghmckay.com:443/couch/uploads/image/appwrap-template-201810062311273.png" />
+      <img src={jonoboPhoneImage} />
       <p>
         Forget learning the rules to something new and the same old classic
         games, Jonobo is all you need. You just need to bring the drinks.

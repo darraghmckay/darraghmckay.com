@@ -1,4 +1,6 @@
 import React from 'react';
+import img from '../../imgs/volgati.png';
+import coverImg from '../../imgs/volgati-cover.png';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -7,9 +9,8 @@ export default {
   href: 'https://volgati.com',
   path: 'volgati-com',
   createdAt: '2016-09-21',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/volgati.png',
-  coverImg:
-    'https://darraghmckay.com:443/couch/uploads/image/volgati-screen.png',
+  img,
+  coverImg,
   category: WEB_DEVELOPMENT,
   color: '#222835',
   body: () => (
@@ -31,7 +32,7 @@ export default {
           that information.
         </p>
       </blockquote>
-      <img src="https://darraghmckay.com:443/couch/uploads/image/volgati-screen.png" />
+      <img src={coverImg} />
       <h3>Technology Stack</h3>
       <ul>
         <li>Heroku Deployment Process</li>

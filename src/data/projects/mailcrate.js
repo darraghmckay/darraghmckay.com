@@ -1,7 +1,7 @@
 import React from 'react';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
-import img from './imgs/mailcrate.jpg';
-import coverImg from './imgs/mailcrate-cover.png';
+import img from '../../imgs/mailcrate.jpg';
+import coverImg from '../../imgs/mailcrate-cover.png';
 
 export default {
   title: 'mailcrate.io',

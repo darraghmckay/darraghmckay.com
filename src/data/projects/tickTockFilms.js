@@ -1,4 +1,7 @@
 import React from 'react';
+import img from '../../imgs/tick-tock-logo.jpg';
+import coverImg from '../../imgs/tick-tock-cover.png';
+import tickTockAnimation from '../../imgs/tick-tock-animation.gif';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -7,9 +10,8 @@ export default {
   href: 'https://ticktockfilms.ie',
   path: 'tick-tock-films',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/tick_tock_logo-1.jpg',
-  coverImg:
-    'https://darraghmckay.com:443/couch/uploads/image/tick_tock_full.png',
+  img,
+  coverImg,
   category: WEB_DEVELOPMENT,
   color: '#FFDC95',
   body: () => (
@@ -68,10 +70,7 @@ export default {
         </li>
       </ul>
       <h2>Animation - Portfolio Preview</h2>
-      <img
-        alt="Tick Tock Films - Work Preview"
-        src="http://darraghmckay.com/couch/uploads/image/tick.gif"
-      />
+      <img alt="Tick Tock Films - Work Preview" src={tickTockAnimation} />
       <h2>Technologies</h2>
       <ul>
         <li>

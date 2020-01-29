@@ -1,4 +1,6 @@
 import React from 'react';
+import img from '../../imgs/tes-logo.jpg';
+import coverImg from '../../imgs/tes-cover.png';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
@@ -7,8 +9,8 @@ export default {
   href: 'http://testrinity.com',
   path: 'trinty-entrepreneurial-society',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/tes_logo-1.jpg',
-  coverImg: 'https://darraghmckay.com:443/couch/uploads/image/tes_full.png',
+  img,
+  coverImg,
   category: WEB_DEVELOPMENT,
   color: '#104470',
   body: () => (

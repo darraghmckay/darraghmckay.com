@@ -1,15 +1,18 @@
 import React from 'react';
+import img from '../../imgs/oneprogramme.jpg';
+import coverImg from '../../imgs/oneprogramme-cover.jpg';
+import oneProgrammeDesktopImage from '../../imgs/oneprogramme-desktop.png';
+import oneProgrammeChecklistImage from '../../imgs/oneprogramme-checklist.png';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
 
 export default {
   title: 'OneProgram.me',
   subTitle: 'Scouting Site for Leaders to Track One Programme Progress',
-  href: 'http://oneprogram.me',
+  href: 'https://oneprogram.me',
   path: 'oneprogramm-me',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/oneprogramme.jpg',
-  coverImg:
-    'https://darraghmckay.com:443/couch/uploads/image/one_prog_full.jpg',
+  img,
+  coverImg,
   category: WEB_DEVELOPMENT,
   color: '#00BCD4',
   body: () => (
@@ -54,10 +57,7 @@ export default {
         <li>See which scouts have completed a full Skill Level</li>
         <li>Add Scouts to their group</li>
       </ul>
-      <img
-        className="noshadow"
-        src="http://darraghmckay.com/couch/uploads/image/one_prog_desktop.PNG"
-      />
+      <img className="noshadow" src={oneProgrammeDesktopImage} />
       <h3>How it's built</h3>
       <p>
         OneProgram.me is built with bootstrap framework, featuring a completely
@@ -86,7 +86,7 @@ export default {
           Google Maps Integration for Selecting / Displaying Group Location
         </li>
       </ul>
-      <img src="http://darraghmckay.com/couch/uploads/image/one_prog_2.PNG" />
+      <img src={oneProgrammeChecklistImage} />
       <h3>What I learnt</h3>
       <p>
         I learnt<strong>A LOT</strong>from this project which is still in

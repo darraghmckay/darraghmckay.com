@@ -1,7 +1,7 @@
 import React from 'react';
 import { WEB_DEVELOPMENT } from '../../constants/blogCategories';
-import img from './imgs/spotify-albums.jpg';
-import coverImg from './imgs/spotify-albums-cover.png';
+import img from '../../imgs/spotify-albums.jpg';
+import coverImg from '../../imgs/spotify-albums-cover.png';
 
 export default {
   title: 'Spotify Albums',
@@ -48,10 +48,7 @@ export default {
         from that album in 2019, it would come back up to the top of the list
         (as it did before Spotify ruined it)
       </p>
-      <img
-        alt="Spotify Albums screenshot"
-        src="https://darraghmckay.com:443/couch/uploads/image/screenshot-2019-11-12-at-16-09-42.png"
-      />
+      <img alt="Spotify Albums screenshot" src={coverImg} />
       <h4>What's next</h4>
       <p>Probably nothing...</p>
       <p>

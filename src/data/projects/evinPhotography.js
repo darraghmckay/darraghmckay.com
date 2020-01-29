@@ -1,4 +1,6 @@
 import React from 'react';
+import img from '../../imgs/evinmckay.jpg';
+import coverImg from '../../imgs/evin-cover.jpg';
 import { WEB_DESIGN } from '../../constants/blogCategories';
 
 export default {
@@ -7,9 +9,8 @@ export default {
   href: 'https://evinmckay.com',
   path: 'evin-mc-kay-photography',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/evinmckay.jpg',
-  coverImg:
-    'https://darraghmckay.com:443/couch/uploads/image/evin_full_2.jpg',
+  img,
+  coverImg,
   category: WEB_DESIGN,
   color: '#FF8A65',
   body: () => <div />,

@@ -1,4 +1,5 @@
 import React from 'react';
+import img from '../../imgs/cascade.jpg';
 import { WEB_DESIGN } from '../../constants/blogCategories';
 
 export default {
@@ -6,7 +7,7 @@ export default {
   subTitle: 'Personal Photogrpahy Site &amp; Blog',
   path: 'cascade-photography',
   createdAt: '2015-11-23',
-  img: 'https://darraghmckay.com:443/couch/uploads/image/cascade.jpg',
+  img,
   coverImg: '',
   category: WEB_DESIGN,
   color: '#f44336',
