@@ -19,3 +19,13 @@ export const useInterval = (callback, delay) => {
     }
   }, [delay]);
 };
+
+const TITLE_BASE = 'Darragh Mc Kay';
+
+export const useTitle = title => {
+  useEffect(() => {
+    document.title = `${title} | ${TITLE_BASE}`;
+  });
+
+  return () => (document.title = `Portfolio | ${TITLE_BASE}`);
+};

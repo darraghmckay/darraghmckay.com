@@ -1,6 +1,7 @@
 import React from 'react';
 import blogs from '../data/blog';
 import BlogList from '../components/BlogList';
+import { useTitle } from '../utils/hooks';
 
 const BlogPage = ({
   match: {
@@ -8,6 +9,7 @@ const BlogPage = ({
   },
 }) => {
   const blog = blogs.find(({ path }) => path === blogId);
+  useTitle(blog.title);
 
   return (
     <div className="blog-page" id="top">
