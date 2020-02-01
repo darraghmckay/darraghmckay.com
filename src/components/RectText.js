@@ -22,23 +22,25 @@ const getTextWidth = (text, font) => {
 const getPtForWidth = (string, width, fontWeight, font) => {
   const tolerance = 0.1; // tolerance in pixels
   let difference = Infinity;
-  let max_pt = 1000;
-  let min_pt = 0;
-  let font_pt;
-  let font_width;
+  let maxPt = 1000;
+  let minPt = 0;
+  let fontPt;
+  let fontWidth;
+  let iterations = 0;
 
-  while (Math.abs(difference) > tolerance) {
-    font_pt = (max_pt + min_pt) / 2;
-    font_width = getTextWidth(string, `${fontWeight} ${font_pt}pt ${font}`);
-    difference = width - font_width;
-    if (width > font_width) {
-      min_pt = font_pt;
+  while (Math.abs(difference) > tolerance && iterations < 100) {
+    fontPt = (maxPt + minPt) / 2;
+    fontWidth = getTextWidth(string, `${fontWeight} ${fontPt}pt ${font}`);
+    difference = width - fontWidth;
+    if (width > fontWidth) {
+      minPt = fontPt;
     } else {
-      max_pt = font_pt;
+      maxPt = fontPt;
     }
+    iterations = iterations + 1;
   }
 
-  return font_pt;
+  return fontPt;
 };
 
 const RectText = memo(({ text, width, fontWeight, font }) => {
