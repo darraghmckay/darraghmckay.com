@@ -10,7 +10,7 @@ import * as BlogCategories from '../../constants/blogCategories';
 export default [
   {
     title: 'Rect Text',
-    path: 'rekt-text',
+    path: 'rect-text',
     createdAt: '2020-03-08',
     category: BlogCategories.WEB_DESIGN,
     body: RektText,
