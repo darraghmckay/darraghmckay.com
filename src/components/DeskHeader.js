@@ -44,7 +44,7 @@ export default (state = new Bundles(), { type, payload }) => {
 `;
 
 const DeskHeader = () => (
-  <header>
+  <header className="w-full">
     <div className="splash-cover pt-8">
       <div className="deskDiv">
         <div className="clock">

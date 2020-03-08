@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import blogEntries from '../data/blog';
 
 const BlogList = ({ count }) => (
@@ -15,7 +16,7 @@ const BlogList = ({ count }) => (
             className={`blog w-full my-3 px-6 py-4 ${blogEntry.category}`}
             key={blogEntry.path}
           >
-            <a href={`/blog/${blogEntry.path}`}>
+            <HashLink to={`/blog/${blogEntry.path}#top`}>
               <div className="w-full my-3 flex flex-row justify-between items-center">
                 <div className="flex flex-col">
                   <strong className="text-2xl">{blogEntry.title}</strong>
@@ -23,7 +24,7 @@ const BlogList = ({ count }) => (
                 </div>
                 <span className="date">{blogEntry.createdAt}</span>
               </div>
-            </a>
+            </HashLink>
           </div>
         ))}
     </div>

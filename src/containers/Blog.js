@@ -1,14 +1,8 @@
 import React from 'react';
-import blogs from '../data/blog';
 import BlogList from '../components/BlogList';
 import { useTitle } from '../utils/hooks';
 
-const BlogPage = ({
-  match: {
-    params: { blogId },
-  },
-}) => {
-  const blog = blogs.find(({ path }) => path === blogId);
+const BlogPage = ({ blog }) => {
   useTitle(blog.title);
 
   return (

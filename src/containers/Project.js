@@ -1,14 +1,8 @@
 import React from 'react';
-import projects from '../data/projects';
 import ProjectList from '../components/ProjectList';
 import { useTitle } from '../utils/hooks';
 
-const ProjectPage = ({
-  match: {
-    params: { projectId },
-  },
-}) => {
-  const project = projects.find(({ path }) => path === projectId);
+const ProjectPage = ({ project }) => {
   useTitle(project.title);
 
   return (

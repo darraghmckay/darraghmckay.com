@@ -7,17 +7,33 @@ import Project from './containers/Project';
 import BlogListPage from './containers/BlogListPage';
 import BlogPage from './containers/Blog';
 import HomePage from './containers/HomePage';
+import NotFoundPage from './containers/NotFoundPage';
+import projects from './data/projects';
+import blogEntries from './data/blog';
 
 const App = () => (
-  <div>
+  <div className="flex flex-col min-h-screen justify-between items-center">
     <Router>
       <Nav />
       <Switch>
-        <Route path="/projects/:projectId" component={Project} />
-        <Route path="/projects" component={ProjectListPage} />
-        <Route path="/blog/:blogId" component={BlogPage} />
-        <Route path="/blog" component={BlogListPage} />
-        <Route path="/" component={HomePage} />
+        {projects.map(project => (
+          <Route
+            key={project.path}
+            path={`/projects/${project.path}`}
+            render={() => <Project project={project} />}
+          />
+        ))}
+        <Route path="/projects" exact={true} component={ProjectListPage} />
+        {blogEntries.map(blog => (
+          <Route
+            key={blog.path}
+            path={`/blog/${blog.path}`}
+            render={() => <BlogPage blog={blog} />}
+          />
+        ))}
+        <Route path="/blog" exact={true} component={BlogListPage} />
+        <Route path="/" exact={true} component={HomePage} />
+        <Route component={NotFoundPage} />
       </Switch>
       <div className="page-body w-full mx-auto">
         <Footer />

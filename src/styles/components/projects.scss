@@ -18,9 +18,15 @@
   }
 }
 
-.project-page, .blog-page {
+.project-page, .blog-page, .not-found-page {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+
   header {
     background-color: $splash-bg;
+    width: 100%
   }
 
   h1 {
