@@ -18,7 +18,7 @@ const BlogPage = ({
       </header>
       <div className="page-body w-full mx-auto my-12">
         <div className="mx-auto max-w-2xl px-4 md:px-0 body">
-          <span className="block mb-4">{blog.createdAt}</span>
+          <span className="block mb-4 text-right">{blog.createdAt}</span>
           {blog.body()}
         </div>
       </div>

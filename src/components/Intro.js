@@ -28,7 +28,7 @@ const introItems = [
 
 const languages = [
   ['Hi, my name is', 'Darragh', 'I’m an', 'engineer'],
-  ['Dia duit,', 'Darragh', ' is anim dom', 'Is innealtóir mé'],
+  ['Dia duit,', 'Darragh', 'is anim dom', 'Is innealtóir mé'],
   ['Bonjour, Je m’appelle', 'Darragh', 'Je suis un', 'ingénieur'],
   ['Hola, mi nombre es', 'Darragh', 'Soy un', 'ingeniero'],
   ['Ciao, il mio nome è', 'Darragh', 'Sono un', 'ingegnere'],
@@ -44,7 +44,7 @@ const Intro = () => {
   return (
     <React.Fragment>
       <div className="text-center my-12 uppercase inline-block w-full">
-        <h1 className="intro-rect leading-none flex flex-col justify-center mx-auto">
+        <h1 className="intro-rect leading-none flex flex-col justify-center items-center mx-auto">
           <RectText
             text={languages[langIndex]}
             width={Math.min(400, Math.round(window.innerWidth * 0.7))}
