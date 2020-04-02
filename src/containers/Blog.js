@@ -11,8 +11,14 @@ const BlogPage = ({ blog }) => {
         <h1>{blog.title}</h1>
       </header>
       <div className="page-body w-full mx-auto my-12">
-        <div className="mx-auto max-w-2xl px-4 md:px-0 body">
-          <span className="block mb-4 text-right">{blog.createdAt}</span>
+        <div
+          className={`${
+            !blog.fullWidth ? 'max-w-2xl px-4 md:px-0' : ''
+          } mx-auto  body`}
+        >
+          <span className="block mb-4 max-w-2xl text-right mx-auto">
+            {blog.createdAt}
+          </span>
           {blog.body()}
         </div>
       </div>

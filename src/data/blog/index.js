@@ -3,11 +3,20 @@ import dinoRunImage from '../../imgs/dino-run.jpg';
 import oneProgrammeImage from '../../imgs/one-prog.jpg';
 import waterPricesImage from '../../imgs/waterprices.jpg';
 import mapImage from '../../imgs/map.jpg';
+import Permutohedron from './Permutohedron';
 import RektText from './RektText';
 
 import * as BlogCategories from '../../constants/blogCategories';
 
 export default [
+  {
+    title: 'Permutohedron',
+    path: 'permutohedron',
+    createdAt: '2020-04-02',
+    category: BlogCategories.VISUALISATION,
+    body: Permutohedron,
+    fullWidth: true,
+  },
   {
     title: 'Rect Text',
     path: 'rect-text',

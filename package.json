@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "3d-force-graph": "^1.60.11",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "tailwind:build": "tailwind build src/styles/tailwind/tailwind.conf.css -o src/styles/tailwind/tailwind.scss",
-    "start": "yarn tailwind:build; react-scripts start",
+    "start": "yarn tailwind:build;BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
