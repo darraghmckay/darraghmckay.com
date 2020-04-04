@@ -84,6 +84,11 @@ button, .button {
       border: solid 1px $color-heffalump;
     }
   }
+
+
+  &:disabled {
+    background: $color-battleship
+  }
 }
 
 .intro-rect {
