@@ -3,12 +3,20 @@ import dinoRunImage from '../../imgs/dino-run.jpg';
 import oneProgrammeImage from '../../imgs/one-prog.jpg';
 import waterPricesImage from '../../imgs/waterprices.jpg';
 import mapImage from '../../imgs/map.jpg';
+import IsometricIllusions from './IsometricIllusions';
 import Permutohedron from './Permutohedron';
 import RektText from './RektText';
 
 import * as BlogCategories from '../../constants/blogCategories';
 
 export default [
+  {
+    title: 'Isometric illusions',
+    path: 'isometric-illusions',
+    createdAt: '2020-04-11',
+    category: BlogCategories.VISUALISATION,
+    body: IsometricIllusions,
+  },
   {
     title: 'Permutohedron',
     path: 'permutohedron',
