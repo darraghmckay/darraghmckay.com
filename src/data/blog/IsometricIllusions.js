@@ -131,29 +131,34 @@ class Route {
     return this.updateOrigin(dir === DIR.X ? dx : 0, dir === DIR.Y ? dy : 0, 0);
   };
 
-  addStairs = (height, dir = DIR.X) => {
-    const stepIncrements = 5;
-    [...Array(height).keys()].forEach((__, stairIndex) => {
-      [...Array(stepIncrements).keys()].forEach((__, increment) => {
-        this.origin = Point(
-          this.origin.x + (dir === DIR.X ? 1 / stepIncrements : 0),
-          this.origin.y + (dir === DIR.Y ? 1 / stepIncrements : 0),
-          this.origin.z + 1 / stepIncrements,
-        );
+  addStairs = (height, dir = DIR.X, incrementPerStair = 5) => {
+    this.updateOrigin(0, 0, 1);
 
-        if (stairIndex !== height - 1 || increment !== stepIncrements - 1) {
-          this.shapes.push({
-            origin: this.origin,
-            dx: dir === DIR.X ? 1 / stepIncrements : 1,
-            dy: dir === DIR.Y ? 1 / stepIncrements : 1,
-            height: 1 / stepIncrements,
-            direction: this.direction,
-          });
+    [...Array(height).keys()].forEach((__, stairIndex) => {
+      [...Array(incrementPerStair).keys()].forEach((__, increment) => {
+        if (stairIndex !== 0 || increment !== 0) {
+          this.origin = Point(
+            this.origin.x + (dir === DIR.X ? 1 / incrementPerStair : 0),
+            this.origin.y + (dir === DIR.Y ? 1 / incrementPerStair : 0),
+            this.origin.z + 1 / incrementPerStair,
+          );
         }
+
+        this.shapes.push({
+          origin: this.origin,
+          dx: dir === DIR.X ? 1 / incrementPerStair : 1,
+          dy: dir === DIR.Y ? 1 / incrementPerStair : 1,
+          height: 1 / incrementPerStair,
+          direction: this.direction,
+        });
       });
     });
 
-    this.updateOrigin(0, 0, -1);
+    this.updateOrigin(
+      dir === DIR.X ? 1 / incrementPerStair : 0,
+      dir === DIR.Y ? 1 / incrementPerStair : 0,
+      -1 + 1 / incrementPerStair,
+    );
 
     this.direction = dir;
     return this;
@@ -360,7 +365,7 @@ const IsometricIllusions = () => {
 
         route
           .rotate(rotation)
-          .addPath(4, DIR.X)
+          .addPath(6, DIR.X)
           .addPath(3, DIR.Y)
           .addPath(3, DIR.X)
           .addPath(3, DIR.Y);
@@ -369,12 +374,13 @@ const IsometricIllusions = () => {
 
         route2
           .split()
-          .addStairs(4, DIR.X)
+          .addPath(1, DIR.X)
+          .addStairs(3, DIR.X)
           .draw();
 
         route2
-          .addPath(5, DIR.Y)
-          .addPath(7, DIR.X)
+          .addPath(6, DIR.Y)
+          .addPath(8, DIR.X)
           .addPath(-7, DIR.Y)
           .addPath(-3, DIR.X)
           .draw();
@@ -384,19 +390,23 @@ const IsometricIllusions = () => {
           .addPath(-3, DIR.Y)
           .addPath(-4, DIR.X)
           .addPath(-3, DIR.Y)
-          .addPath(-3, DIR.X);
+          .addPath(-4, DIR.X);
 
         route3
           .split()
           .addPath(1, DIR.Y)
-          .addStairs(4, DIR.Y)
+          .addStairs(3, DIR.Y)
           .draw();
 
-        route3.addPath(-6, DIR.X).draw();
+        route3
+          .addPath(-1, DIR.X)
+          .addPath(-2, DIR.Y)
+          .addPath(-4, DIR.X)
+          .draw();
 
         route
-          .addPath(2, DIR.Y)
-          .addColumn(8, DIR.DOWN)
+          .addPath(4, DIR.Y)
+          .addColumn(10, DIR.DOWN)
           .draw();
 
         new Route(iso, Point(0, 0, 1), red)
