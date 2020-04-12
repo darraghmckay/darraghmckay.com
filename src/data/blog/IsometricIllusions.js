@@ -14,6 +14,23 @@ const blue = new Color(59, 188, 188);
 const GRID_SIZE = 16;
 const DRAW_NEGATIVE_GRID = false;
 
+const isEquivalent = (p1, p2, rotationQuadrant = 0) => {
+  const xDif = Math.round(p1.x) - Math.round(p2.x);
+  const yDif = Math.round(p1.y) - Math.round(p2.y);
+  const zDif = Math.round(p1.z) - Math.round(p2.z);
+  switch (rotationQuadrant) {
+    case 0.25:
+      return xDif === zDif && yDif === -zDif;
+    case 0.5:
+      return xDif === zDif && yDif === zDif;
+    case 0.75:
+      return xDif === -zDif && yDif === zDif;
+    case 0:
+    default:
+      return xDif === -zDif && yDif === -zDif;
+  }
+};
+
 class Route {
   constructor(iso, origin = Point(0, 0, 0), color = blue) {
     this.iso = iso;
@@ -24,9 +41,55 @@ class Route {
     this.polarity = 1;
     this.color = color;
     this.rotation = 0;
+    this.depth = 1;
     this.rotationQuadrant = 0;
     return this;
   }
+
+  getEquivalentPoint = point => {
+    const equivalentPoints = [];
+    for (let i = 0; i < this.shapes.length; i++) {
+      const shape = this.shapes[i];
+      const { origin, height, direction } = shape;
+      if (direction === DIR.X) {
+        for (let dx = 0; dx < shape.dx; dx++) {
+          const p = Point(origin.x + dx, origin.y, origin.z + height);
+          if (isEquivalent(point, p, this.rotationQuadrant)) {
+            equivalentPoints.push(p);
+          }
+        }
+      }
+
+      if (direction === DIR.Y) {
+        for (let dy = 0; dy < shape.dy; dy++) {
+          const p = Point(origin.x, origin.y + dy, origin.z + height);
+          if (isEquivalent(point, p, this.rotationQuadrant)) {
+            equivalentPoints.push(p);
+          }
+        }
+      }
+
+      if (direction === DIR.DOWN) {
+        const p = Point(origin.x, origin.y, origin.z + height);
+        if (isEquivalent(point, p, this.rotationQuadrant)) {
+          equivalentPoints.push(p);
+        }
+      }
+
+      if (direction === DIR.UP) {
+        const p = Point(origin.x, origin.y, origin.z + height);
+        if (isEquivalent(point, p, this.rotationQuadrant)) {
+          equivalentPoints.push(p);
+        }
+      }
+    }
+
+    if (equivalentPoints.length === 0) {
+      return undefined;
+    }
+
+    return equivalentPoints.sort((p1, p2) => p2.z - p1.z)[0];
+  };
 
   clearCanvas = () => {
     this.iso.canvas.ctx.clearRect(
@@ -56,8 +119,8 @@ class Route {
         origin: this.origin,
         dx,
         dy,
-        height,
-        direction: this.direction,
+        height: height - 1 + this.depth,
+        direction: dir,
         rotation,
       };
       this.shapes.push(shape);
@@ -71,7 +134,7 @@ class Route {
       dy,
       height,
       length: -height,
-      direction: this.direction,
+      direction: dir,
       rotation,
     };
     this.shapes.push(shape);
@@ -82,7 +145,7 @@ class Route {
   addPath = (length, dir = DIR.X) => {
     const dx = dir === DIR.X ? Math.abs(length) : 1;
     const dy = dir === DIR.Y ? Math.abs(length) : 1;
-    const height = 1;
+    const height = 1 * this.depth;
 
     if (length < 0) {
       this.updateOrigin(
@@ -103,7 +166,7 @@ class Route {
         dy: dy + (dir === DIR.Y ? 1 : 0),
         height,
         length,
-        direction: this.direction,
+        direction: dir,
       };
       this.shapes.push(shape);
       this.polarity = -1;
@@ -124,7 +187,7 @@ class Route {
       dx,
       dy,
       height,
-      direction: this.direction,
+      direction: dir,
     };
     this.shapes.push(shape);
 
@@ -132,7 +195,11 @@ class Route {
   };
 
   addStairs = (height, dir = DIR.X, incrementPerStair = 5) => {
-    this.updateOrigin(0, 0, 1);
+    this.updateOrigin(
+      dir === DIR.X ? 1 : 0,
+      dir === DIR.Y ? 1 : 0,
+      1 * this.depth,
+    );
 
     [...Array(height).keys()].forEach((__, stairIndex) => {
       [...Array(incrementPerStair).keys()].forEach((__, increment) => {
@@ -149,7 +216,7 @@ class Route {
           dx: dir === DIR.X ? 1 / incrementPerStair : 1,
           dy: dir === DIR.Y ? 1 / incrementPerStair : 1,
           height: 1 / incrementPerStair,
-          direction: this.direction,
+          direction: dir,
         });
       });
     });
@@ -157,7 +224,7 @@ class Route {
     this.updateOrigin(
       dir === DIR.X ? 1 / incrementPerStair : 0,
       dir === DIR.Y ? 1 / incrementPerStair : 0,
-      -1 + 1 / incrementPerStair,
+      -1 * this.depth + 1 / incrementPerStair,
     );
 
     this.direction = dir;
@@ -165,7 +232,9 @@ class Route {
   };
 
   split() {
-    return new Route(this.iso, this.origin).rotate(this.rotation);
+    return new Route(this.iso, this.origin)
+      .setRotation(this.rotation)
+      .setDepth(this.depth);
   }
 
   rotate(rotation = Math.PI / 8) {
@@ -183,13 +252,18 @@ class Route {
     return this;
   }
 
+  setDepth(depth = 1) {
+    this.depth = depth;
+    return this;
+  }
+
   addShapes = shapes => {
     this.shapes = this.shapes.concat(shapes);
     return this;
   };
 
   getShapeObj = ({ origin, dx, dy, height }) => {
-    let shape = Shape.Prism(origin, dx, dy, height);
+    let shape = Shape.Prism(origin, dx, dy, height || this.depth);
 
     shape = shape.rotateZ(
       Point(GRID_SIZE / 2, GRID_SIZE / 2, 0),
@@ -270,7 +344,7 @@ const generateRoute = (route, lengths = 60) => {
           generateRoute(
             new Route(route.iso, route.origin)
               .addStairs(stairLength, stairDir)
-              .addPath(1, stairDir)
+              // .addPath(1, stairDir)
               .updateOrigin(
                 stairDir === DIR.Y ? -2 : 0,
                 stairDir === DIR.X ? -2 : 0,
@@ -297,20 +371,39 @@ const generateRoute = (route, lengths = 60) => {
   return route;
 };
 
-const isEquivalent = (p1, p2) => {
-  const xDif = p1.x - p2.x;
-  const yDif = p1.y - p2.y;
-  const zDif = p1.z - p2.z;
-  return xDif === -zDif && yDif === -zDif;
-};
-
 const IsometricIllusions = () => {
   const canv = useRef(null);
-  const [currentRoute, setCurrentCoute] = useState(null);
+  let gameRoute = useRef(null);
   const [rotation, setRotation] = useState(0);
   const [nextRotation, setNextRotation] = useState(0);
+  const [bloxRotation, setBloxRotation] = useState(0);
   const [generated, setGenerated] = useState(false);
   const [time, setTime] = useState(0);
+  const [blox, setBlox] = useState({
+    origin: Point(0, 0, 1),
+    direction: DIR.X,
+    standing: false,
+  });
+
+  const moveAndRotateBlox = (x, y, z = 0) =>
+    setBlox({
+      ...blox,
+      origin: Point(blox.origin.x + x, blox.origin.y + y, blox.origin.z + z),
+    });
+
+  const setBloxOrigin = origin =>
+    setBlox({
+      ...blox,
+      origin,
+    });
+
+  // const moveAndRotateBlox = (x, y, z = 0) => {
+  //   setBlox({
+  //     ...blox,
+  //     direction: x > 0 ? DIR.X : DIR.Y,
+  //   });
+  //   setBloxRotation(Math.PI / 4);
+  // };
 
   const clearCanvas = () => {
     const context = canv.current.getContext('2d');
@@ -320,21 +413,64 @@ const IsometricIllusions = () => {
   const generateNewPath = () => {
     setGenerated(true);
     clearCanvas();
+    setBloxOrigin(Point(0, 0, 1));
     const iso = new Isomer(canv.current);
     const route = new Route(iso);
     drawGrid(iso, rotation);
     const randomRoute = generateRoute(route);
-    setCurrentCoute(randomRoute);
+    gameRoute.current = randomRoute;
     randomRoute.draw();
   };
 
   const handleKeyPress = event => {
     if (event.keyCode === 39) {
       // ArrowRight
-      setNextRotation(nextRotation - Math.PI / 2);
+      event.preventDefault();
+      if (event.metaKey) {
+        setNextRotation(nextRotation - Math.PI / 2);
+      } else {
+        const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+          Point(blox.origin.x, blox.origin.y - 1, blox.origin.z),
+        );
+        if (maybeNextOrigin) {
+          // moveAndRotateBlox(0, -1);
+          setBloxOrigin(maybeNextOrigin);
+        }
+      }
     } else if (event.keyCode === 37) {
       // ArrowLeft
-      setNextRotation(nextRotation + Math.PI / 2);
+      event.preventDefault();
+      if (event.metaKey) {
+        setNextRotation(nextRotation + Math.PI / 2);
+      } else {
+        const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+          Point(blox.origin.x, blox.origin.y + 1, blox.origin.z),
+        );
+        if (maybeNextOrigin) {
+          // moveAndRotateBlox(0, 1);
+          setBloxOrigin(maybeNextOrigin);
+        }
+      }
+    } else if (event.keyCode === 40) {
+      // ArrowDown
+      event.preventDefault();
+      const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+        Point(blox.origin.x - 1, blox.origin.y, blox.origin.z),
+      );
+      if (maybeNextOrigin) {
+        // moveAndRotateBlox(-1, 0);
+        setBloxOrigin(maybeNextOrigin);
+      }
+    } else if (event.keyCode === 38) {
+      // ArrowUp
+      event.preventDefault();
+      const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+        Point(blox.origin.x + 1, blox.origin.y, blox.origin.z),
+      );
+      if (maybeNextOrigin) {
+        // moveAndRotateBlox(1, 0);
+        setBloxOrigin(maybeNextOrigin);
+      }
     }
   };
 
@@ -355,73 +491,86 @@ const IsometricIllusions = () => {
 
   useEffect(() => {
     if (canv.current && !generated) {
-      if (!currentRoute || rotation !== currentRoute.rotation) {
-        const iso = new Isomer(canv.current);
+      const iso = new Isomer(canv.current);
 
-        clearCanvas();
-        const route = new Route(iso, Point(0, 0, 0));
-        setCurrentCoute(route);
-        drawGrid(iso, rotation);
+      clearCanvas();
+      const route = new Route(iso, Point(0, 0, 0));
+      gameRoute.current = route;
+      drawGrid(iso, rotation);
 
-        route
-          .rotate(rotation)
-          .addPath(6, DIR.X)
-          .addPath(3, DIR.Y)
-          .addPath(3, DIR.X)
-          .addPath(3, DIR.Y);
+      route
+        .rotate(rotation)
+        .addPath(6, DIR.X)
+        .addPath(3, DIR.Y)
+        .addPath(3, DIR.X)
+        .addPath(3, DIR.Y);
 
-        const route2 = route.split().addStairs(3, DIR.X);
+      const route2 = route.split().addStairs(3, DIR.X);
 
-        route2
-          .split()
-          .addPath(1, DIR.X)
-          .addStairs(3, DIR.X)
-          .draw();
+      route.addShapes(route2.split().addStairs(3, DIR.X).shapes);
 
+      route.addShapes(
         route2
           .addPath(6, DIR.Y)
           .addPath(8, DIR.X)
           .addPath(-7, DIR.Y)
-          .addPath(-3, DIR.X)
-          .draw();
+          .addPath(-3, DIR.X).shapes,
+      );
 
-        const route3 = route2
-          .split()
-          .addPath(-3, DIR.Y)
-          .addPath(-4, DIR.X)
-          .addPath(-3, DIR.Y)
-          .addPath(-4, DIR.X);
+      const route3 = route2
+        .split()
+        .addPath(-3, DIR.Y)
+        .addPath(-4, DIR.X)
+        .addPath(-3, DIR.Y)
+        .addPath(-4, DIR.X);
 
-        route3
-          .split()
-          .addPath(1, DIR.Y)
-          .addStairs(3, DIR.Y)
-          .draw();
+      route.addShapes(route3.split().addStairs(3, DIR.Y).shapes);
 
+      route.addShapes(
         route3
           .addPath(-1, DIR.X)
           .addPath(-2, DIR.Y)
-          .addPath(-4, DIR.X)
-          .draw();
+          .addPath(-5, DIR.X).shapes,
+      );
 
-        route
-          .addPath(4, DIR.Y)
-          .addColumn(10, DIR.DOWN)
-          .draw();
+      route
+        .addPath(4, DIR.Y)
+        .addColumn(10, DIR.DOWN)
+        .draw();
 
-        new Route(iso, Point(0, 0, 1), red)
-          .rotate(rotation)
-          .addPath(2, DIR.X)
-          .draw();
-      }
+      iso.add(
+        Shape.Prism(blox.origin)
+          .rotateX(
+            Point(blox.origin.x, blox.origin.y + 1, blox.origin.z),
+            blox.direction === DIR.Y ? bloxRotation : 0,
+          )
+          .rotateY(
+            Point(blox.origin.x + 1, blox.origin.y, blox.origin.z),
+            blox.direction === DIR.X ? bloxRotation : 0,
+          )
+          .rotateZ(Point(GRID_SIZE / 2, GRID_SIZE / 2, 0), rotation),
+        red,
+      );
     } else if (generated) {
-      if (rotation !== currentRoute.rotation) {
-        clearCanvas();
-        drawGrid(currentRoute.iso, rotation);
-        currentRoute.setRotation(rotation).draw();
-      }
+      clearCanvas();
+      drawGrid(gameRoute.current.iso, rotation);
+      gameRoute.current.setRotation(rotation).draw();
+
+      gameRoute.current.iso.add(
+        Shape.Prism(blox.origin)
+          .rotateX(
+            Point(blox.origin.x, blox.origin.y + 1, blox.origin.z),
+            blox.direction === DIR.Y ? bloxRotation : 0,
+          )
+          .rotateY(
+            Point(blox.origin.x + 1, blox.origin.y, blox.origin.z),
+            blox.direction === DIR.X ? bloxRotation : 0,
+          )
+          .rotateZ(Point(GRID_SIZE / 2, GRID_SIZE / 2, 0), rotation),
+        red,
+      );
     }
-  }, [canv, currentRoute, generated, rotation]);
+  }, [canv, blox, bloxRotation, gameRoute, generated, rotation]);
   useEventListener('keydown', handleKeyPress);
 
   return (
