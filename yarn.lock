@@ -5639,6 +5639,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
+isomer-route@../isomer-route:
+  version "0.5.0"
+  dependencies:
+    isomer "^0.2.6"
+
 isomer@^0.2.6:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/isomer/-/isomer-0.2.6.tgz#81bcf33f7da139247264847a280d0129fce53186"
