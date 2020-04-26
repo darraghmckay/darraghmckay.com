@@ -388,7 +388,6 @@ const IsometricIllusions = () => {
               .addColumn(4, DIR.UP, block =>
                 block.setColor(darkGreen).rotateAlongAxis(rotation),
               )
-              .drawGrid()
               .draw();
           }}
         />
