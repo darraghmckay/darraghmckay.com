@@ -392,9 +392,9 @@ const IsometricIllusions = () => {
           }}
         />
       </div>
-      <button className="mx-auto flex" onClick={generateNewPath}>
+      {/* <button className="mx-auto flex" onClick={generateNewPath}>
         Generate
-      </button>
+      </button> */}
       {/* <div id="isometric-generated-game">
         <IsometricRoute
           scale={4}
