@@ -5639,10 +5639,13 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-isomer-route@../isomer-route:
-  version "0.5.0"
+isomer-route@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/isomer-route/-/isomer-route-1.0.0.tgz#e0a246bf66ae2c67e6339d8cc4965dba384abcb3"
+  integrity sha512-R6Gle/kQtoqNw0zyW1PX4NouaxBEuZmqqhbfNT6JxZSsalrKJwdh0oul9w+tXDWE92cpkgtBPii1Y4hfGkd96A==
   dependencies:
     isomer "^0.2.6"
+    topological-sort "^0.3.0"
 
 isomer@^0.2.6:
   version "0.2.6"
@@ -10489,6 +10492,11 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+topological-sort@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/topological-sort/-/topological-sort-0.3.0.tgz#3ca539982c71a13f0a7b3be2ad4ae4dd437a1e3b"
+  integrity sha512-BmO2t72jjJ3B9PZC3LTHyojgNynOKEvWG4GiYqyfSMUjtO6+yZK0oozlMYVA+tC6YvS3NZh4OPx6QaolEYOg6A==
 
 tough-cookie@^2.3.3, tough-cookie@^2.3.4, tough-cookie@^2.5.0:
   version "2.5.0"
