@@ -30,7 +30,7 @@ const generateRoute = (route, lengths = 30) => {
 
       length = randomInt(9, 3);
       length = length * (route.origin[direction] > length ? -1 : 1);
-      route = route.addPath(length, direction);
+      route = route.addTrack(length, direction);
       if (rand > 0.7) {
         const stairLength = randomInt(4, 2);
         const stairDir = direction === DIR.X ? DIR.Y : DIR.X;
@@ -44,9 +44,9 @@ const generateRoute = (route, lengths = 30) => {
                 stairDir === DIR.X ? -2 : 0,
                 0,
               )
-              .addPath(5, direction),
+              .addTrack(5, direction),
             randomInt(15),
-          ).connectedBlocks,
+          ).blockGroups,
         );
       }
     } else {
@@ -154,41 +154,41 @@ const IsometricIllusions = () => {
     route
       .rotate(rotation)
       .setDelay(0)
-      .addPath(6, DIR.X)
-      .addPath(3, DIR.Y)
-      .addPath(3, DIR.X)
-      .addPath(3, DIR.Y);
+      .addTrack(6, DIR.X)
+      .addTrack(3, DIR.Y)
+      .addTrack(3, DIR.X)
+      .addTrack(3, DIR.Y);
 
     const route2 = route.split().addStairs(3, DIR.X);
 
-    route.addBlocks(route2.split().addStairs(3, DIR.X).connectedBlocks);
+    route.addBlocks(route2.split().addStairs(3, DIR.X).blockGroups);
 
     route.addBlocks(
       route2
-        .addPath(8, DIR.Y)
-        .addPath(7, DIR.X)
-        .addPath(-10, DIR.Y)
-        .addPath(-3, DIR.X).connectedBlocks,
+        .addTrack(8, DIR.Y)
+        .addTrack(7, DIR.X)
+        .addTrack(-10, DIR.Y)
+        .addTrack(-3, DIR.X).blockGroups,
     );
 
     const route3 = route2
       .split()
-      .addPath(-5, DIR.Y)
-      .addPath(-5, DIR.X)
-      .addPath(-3, DIR.Y)
-      .addPath(-5, DIR.X);
+      .addTrack(-5, DIR.Y)
+      .addTrack(-5, DIR.X)
+      .addTrack(-3, DIR.Y)
+      .addTrack(-5, DIR.X);
 
-    route.addBlocks(route3.split().addStairs(3, DIR.Y).connectedBlocks);
+    route.addBlocks(route3.split().addStairs(3, DIR.Y).blockGroups);
 
     route.addBlocks(
       route3
-        .addPath(-2, DIR.X)
-        .addPath(-3, DIR.Y)
-        .addPath(-6, DIR.X).connectedBlocks,
+        .addTrack(-2, DIR.X)
+        .addTrack(-3, DIR.Y)
+        .addTrack(-6, DIR.X).blockGroups,
     );
 
     route
-      .addPath(4, DIR.Y)
+      .addTrack(4, DIR.Y)
       .addColumn(10, DIR.DOWN)
       .drawGrid(GRID_SIZE);
 
@@ -196,7 +196,7 @@ const IsometricIllusions = () => {
       route
         .split()
         .setOrigin(blox.origin)
-        .addPath(1, blox.direction, red).connectedBlocks,
+        .addTrack(1, blox.direction, red).blockGroups,
     );
 
     route.draw();
@@ -210,7 +210,7 @@ const IsometricIllusions = () => {
 
     route
       .setRotation(rotation)
-      .addShapes(generatedRoute.current.connectedBlocks)
+      .addShapes(generatedRoute.current.blockGroups)
       .drawGrid(GRID_SIZE)
       .draw();
   };
@@ -227,8 +227,8 @@ const IsometricIllusions = () => {
             route
               .setGridSize(6)
               .setRotation(rotation)
-              .addPath(6, DIR.X)
-              .addPath(6, DIR.Y)
+              .addTrack(6, DIR.X)
+              .addTrack(6, DIR.Y)
               .addColumn(6, DIR.DOWN)
               .draw();
           }}
@@ -243,13 +243,13 @@ const IsometricIllusions = () => {
             route
               .setGridSize(2)
               .setRotation(rotation)
-              .addPath(2, DIR.X)
+              .addTrack(2, DIR.X)
               .setOrigin(Point(0, 1, 0))
-              .addPath(2, DIR.X)
+              .addTrack(2, DIR.X)
               .setOrigin(Point(0, 0, 2))
-              .addPath(2, DIR.X)
+              .addTrack(2, DIR.X)
               .setOrigin(Point(0, 1, 2))
-              .addPath(2, DIR.X)
+              .addTrack(2, DIR.X)
               .draw();
           }}
         />
@@ -264,9 +264,9 @@ const IsometricIllusions = () => {
               .setDelay(0)
               .setGridSize(2)
               .setRotation(rotation)
-              .addPath(2, DIR.X, block => block.setColor(red))
+              .addTrack(2, DIR.X, block => block.setColor(red))
               .setOrigin(Point(1, 0, 1))
-              .addPath(2, DIR.Y, block => block.setColor(green))
+              .addTrack(2, DIR.Y, block => block.setColor(green))
               .setOrigin(Point(0, 1, 0))
               .addColumn(2, DIR.UP)
               .draw();
@@ -283,17 +283,19 @@ const IsometricIllusions = () => {
             route
               .setGridSize(5)
               .setRotation(rotation)
-              .addPath(2, DIR.X, block => block.setColor(red).addEndExtrusion())
+              .addTrack(2, DIR.X, block =>
+                block.setColor(red).addEndExtrusion(),
+              )
               .setOrigin(Point(2, -1, 1))
-              .addPath(2, DIR.X, block =>
+              .addTrack(2, DIR.X, block =>
                 block.setColor(red).addStartExtrusion(),
               )
               .setOrigin(Point(0, 1, 0))
-              .addPath(2, DIR.Y, block =>
+              .addTrack(2, DIR.Y, block =>
                 block.setColor(blue).addEndExtrusion(),
               )
               .setOrigin(Point(-1, 2, 1))
-              .addPath(2, DIR.Y, block =>
+              .addTrack(2, DIR.Y, block =>
                 block.setColor(blue).addStartExtrusion(),
               )
               .draw();
@@ -310,8 +312,8 @@ const IsometricIllusions = () => {
               .setRotation(rotation)
               .addColumn(3, DIR.UP, block => block.addEndExtrusion())
               .setOrigin(Point(1, 0, 0))
-              .addPath(5, DIR.X)
-              .addPath(6, DIR.Y)
+              .addTrack(5, DIR.X)
+              .addTrack(6, DIR.Y)
               .addColumn(3, DIR.DOWN, block => block.addStartExtrusion())
               .draw();
           }}
@@ -340,19 +342,19 @@ const IsometricIllusions = () => {
                 block.setColor(darkGreen).rotateYEnd(rotation),
               )
               .updateOrigin(0, 1, -1)
-              .addPath(4, DIR.Y, block =>
+              .addTrack(4, DIR.Y, block =>
                 block.setColor(darkGreen).rotateAlongAxis(rotation),
               )
-              .addPath(5, DIR.Y)
+              .addTrack(5, DIR.Y)
               .updateOrigin(0, -1, 0)
               .addStairs(3, DIR.X)
               .updateOrigin(0, -1, 0)
-              .addPath(3, DIR.Y)
+              .addTrack(3, DIR.Y)
               .updateOrigin(1, -1, 0)
-              .addPath(-3, DIR.Y)
+              .addTrack(-3, DIR.Y)
               .setOrigin(Point(-3, -2, 10))
-              .addPath(-5, DIR.X)
-              .addPath(-10, DIR.Y)
+              .addTrack(-5, DIR.X)
+              .addTrack(-10, DIR.Y)
               .addColumn(2, DIR.UP, block => block.addEndExtrusion())
               .draw();
           }}
@@ -367,21 +369,21 @@ const IsometricIllusions = () => {
             route
               .setGridSize(8)
               .updateOrigin(-5, -5, 5)
-              .addPath(7, DIR.Y)
-              .addPath(3, DIR.X)
-              .addPath(9, DIR.X, block =>
+              .addTrack(7, DIR.Y)
+              .addTrack(3, DIR.X)
+              .addTrack(9, DIR.X, block =>
                 block.setColor(darkGreen).rotateZCenter(rotation),
               )
-              .addPath(2, DIR.X)
+              .addTrack(2, DIR.X)
               .addColumn(3, DIR.DOWN, block => block.addStartExtrusion())
-              .addPath(7, DIR.Y)
-              .addPath(-8, DIR.X)
-              .addPath(-3, DIR.Y)
+              .addTrack(7, DIR.Y)
+              .addTrack(-8, DIR.X)
+              .addTrack(-3, DIR.Y)
               .setOrigin(Point(0, 0, 0))
-              .addPath(7, DIR.X)
+              .addTrack(7, DIR.X)
               .addColumn(4, DIR.UP, block => block.addEndExtrusion())
               .setOrigin(Point(0, -5, 7))
-              .addPath(2, DIR.X)
+              .addTrack(2, DIR.X)
               .setOrigin(Point(3, 3, 0))
               .addColumn(4, DIR.UP, block =>
                 block.setColor(darkGreen).rotateAlongAxis(rotation),
