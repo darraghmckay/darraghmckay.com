@@ -46,7 +46,7 @@ const generateRoute = (route, lengths = 30) => {
               )
               .addPath(5, direction),
             randomInt(15),
-          ).shapes,
+          ).connectedBlocks,
         );
       }
     } else {
@@ -161,30 +161,30 @@ const IsometricIllusions = () => {
 
     const route2 = route.split().addStairs(3, DIR.X);
 
-    route.addShapes(route2.split().addStairs(3, DIR.X).shapes);
+    route.addBlocks(route2.split().addStairs(3, DIR.X).connectedBlocks);
 
-    route.addShapes(
+    route.addBlocks(
       route2
-        .addPath(6, DIR.Y)
-        .addPath(8, DIR.X)
-        .addPath(-7, DIR.Y)
-        .addPath(-3, DIR.X).shapes,
+        .addPath(8, DIR.Y)
+        .addPath(7, DIR.X)
+        .addPath(-10, DIR.Y)
+        .addPath(-3, DIR.X).connectedBlocks,
     );
 
     const route3 = route2
       .split()
+      .addPath(-5, DIR.Y)
+      .addPath(-5, DIR.X)
       .addPath(-3, DIR.Y)
-      .addPath(-4, DIR.X)
-      .addPath(-3, DIR.Y)
-      .addPath(-4, DIR.X);
+      .addPath(-5, DIR.X);
 
-    route.addShapes(route3.split().addStairs(3, DIR.Y).shapes);
+    route.addBlocks(route3.split().addStairs(3, DIR.Y).connectedBlocks);
 
-    route.addShapes(
+    route.addBlocks(
       route3
-        .addPath(-1, DIR.X)
-        .addPath(-2, DIR.Y)
-        .addPath(-5, DIR.X).shapes,
+        .addPath(-2, DIR.X)
+        .addPath(-3, DIR.Y)
+        .addPath(-6, DIR.X).connectedBlocks,
     );
 
     route
@@ -192,11 +192,11 @@ const IsometricIllusions = () => {
       .addColumn(10, DIR.DOWN)
       .drawGrid(GRID_SIZE);
 
-    route.addShapes(
+    route.addBlocks(
       route
         .split()
         .setOrigin(blox.origin)
-        .addPath(1, blox.direction, red).shapes,
+        .addPath(1, blox.direction, red).connectedBlocks,
     );
 
     route.draw();
@@ -210,7 +210,7 @@ const IsometricIllusions = () => {
 
     route
       .setRotation(rotation)
-      .addShapes(generatedRoute.current.shapes)
+      .addShapes(generatedRoute.current.connectedBlocks)
       .drawGrid(GRID_SIZE)
       .draw();
   };
@@ -221,16 +221,15 @@ const IsometricIllusions = () => {
     <div className="mx-auto  text-center flex flex-col">
       <div id="isometric-triangle">
         <IsometricRoute
-          height={600}
+          height={300}
           width={672}
           drawRoute={route => {
             route
               .setGridSize(6)
               .setRotation(rotation)
-              .updateOrigin(5, 5, 0)
-              .addColumn(6, DIR.UP)
-              .addPath(-6, DIR.Y)
-              .addPath(-6, DIR.X)
+              .addPath(6, DIR.X)
+              .addPath(6, DIR.Y)
+              .addColumn(6, DIR.DOWN)
               .draw();
           }}
         />
@@ -265,11 +264,55 @@ const IsometricIllusions = () => {
               .setDelay(0)
               .setGridSize(2)
               .setRotation(rotation)
-              .addPath(2, DIR.X, red)
+              .addPath(2, DIR.X, block => block.setColor(red))
               .setOrigin(Point(1, 0, 1))
-              .addPath(2, DIR.Y, green)
+              .addPath(2, DIR.Y, block => block.setColor(green))
               .setOrigin(Point(0, 1, 0))
               .addColumn(2, DIR.UP)
+              .draw();
+          }}
+        />
+      </div>
+
+      <div id="isometric-extrusions">
+        <IsometricRoute
+          height={300}
+          width={672}
+          scale={3}
+          drawRoute={route => {
+            route
+              .setGridSize(5)
+              .setRotation(rotation)
+              .addPath(2, DIR.X, block => block.setColor(red).addEndExtrusion())
+              .setOrigin(Point(2, -1, 1))
+              .addPath(2, DIR.X, block =>
+                block.setColor(red).addStartExtrusion(),
+              )
+              .setOrigin(Point(0, 1, 0))
+              .addPath(2, DIR.Y, block =>
+                block.setColor(blue).addEndExtrusion(),
+              )
+              .setOrigin(Point(-1, 2, 1))
+              .addPath(2, DIR.Y, block =>
+                block.setColor(blue).addStartExtrusion(),
+              )
+              .draw();
+          }}
+        />
+      </div>
+      <div id="isometric-triangle-improved">
+        <IsometricRoute
+          height={300}
+          width={672}
+          drawRoute={route => {
+            route
+              .setGridSize(6)
+              .setRotation(rotation)
+              .addColumn(3, DIR.UP, block => block.addEndExtrusion())
+              .setOrigin(Point(1, 0, 0))
+              .addPath(5, DIR.X)
+              .addPath(6, DIR.Y)
+              .addColumn(3, DIR.DOWN, block => block.addStartExtrusion())
               .draw();
           }}
         />
@@ -291,28 +334,14 @@ const IsometricIllusions = () => {
           drawRoute={route => {
             route
               .setGridSize(12)
-              .setOrigin(Point(3, -1, 1))
-              .addExtrusion(
-                [
-                  { x: 0, y: 0, z: 0 },
-                  { x: 1, y: 0, z: 0 },
-                  { x: 1, y: 1, z: 0 },
-                ],
-                0.2,
-                blue,
-                shape =>
-                  shape
-                    .rotateY(Point(3.5, -0.5, 1.5), (Math.PI * 1) / 2)
-                    .rotateX(Point(3.5, -0.5, 1.5), (-Math.PI * 3) / 2),
-              )
-              .updateOrigin(0, 0, 1)
-              .addColumn(2, DIR.UP)
-              .addColumn(5, DIR.UP, darkGreen, shape =>
-                shape.rotateY(Point(3.5, 4, 8.5), rotation),
+              .setOrigin(Point(3, -1, 3))
+              .addColumn(2, DIR.UP, block => block.addStartExtrusion())
+              .addColumn(5, DIR.UP, block =>
+                block.setColor(darkGreen).rotateYEnd(rotation),
               )
               .updateOrigin(0, 1, -1)
-              .addPath(4, DIR.Y, darkGreen, shape =>
-                shape.rotateY(Point(3.5, 4, 8.5), rotation),
+              .addPath(4, DIR.Y, block =>
+                block.setColor(darkGreen).rotateAlongAxis(rotation),
               )
               .addPath(5, DIR.Y)
               .updateOrigin(0, -1, 0)
@@ -320,24 +349,44 @@ const IsometricIllusions = () => {
               .updateOrigin(0, -1, 0)
               .addPath(3, DIR.Y)
               .updateOrigin(1, -1, 0)
-              .addPath(-2, DIR.Y)
-              .setOrigin(Point(-3, -2, 9))
-              .addPath(-4, DIR.X)
-              .addPath(-9, DIR.Y)
-              .addColumn(2, DIR.UP)
-              .addExtrusion(
-                [
-                  { x: 0, y: 0, z: 0 },
-                  { x: 1, y: 0, z: 0 },
-                  { x: 1, y: 1, z: 0 },
-                ],
-                1,
-                blue,
-                shape =>
-                  shape
-                    .rotateY(Point(-6.5, -11, 11.5), Math.PI / 2)
-                    .rotateX(Point(-6.5, -10.5, 11.5), -Math.PI / 2),
+              .addPath(-3, DIR.Y)
+              .setOrigin(Point(-3, -2, 10))
+              .addPath(-5, DIR.X)
+              .addPath(-10, DIR.Y)
+              .addColumn(2, DIR.UP, block => block.addEndExtrusion())
+              .draw();
+          }}
+        />
+      </div>
+      <div id="isometric-monument-valley-lvl-2">
+        <IsometricRoute
+          scale={4}
+          height={600}
+          width={672}
+          drawRoute={route => {
+            route
+              .setGridSize(8)
+              .updateOrigin(-5, -5, 5)
+              .addPath(7, DIR.Y)
+              .addPath(3, DIR.X)
+              .addPath(9, DIR.X, block =>
+                block.setColor(darkGreen).rotateZCenter(rotation),
               )
+              .addPath(2, DIR.X)
+              .addColumn(3, DIR.DOWN, block => block.addStartExtrusion())
+              .addPath(7, DIR.Y)
+              .addPath(-8, DIR.X)
+              .addPath(-3, DIR.Y)
+              .setOrigin(Point(0, 0, 0))
+              .addPath(7, DIR.X)
+              .addColumn(4, DIR.UP, block => block.addEndExtrusion())
+              .setOrigin(Point(0, -5, 7))
+              .addPath(2, DIR.X)
+              .setOrigin(Point(3, 3, 0))
+              .addColumn(4, DIR.UP, block =>
+                block.setColor(darkGreen).rotateAlongAxis(rotation),
+              )
+              .drawGrid()
               .draw();
           }}
         />
