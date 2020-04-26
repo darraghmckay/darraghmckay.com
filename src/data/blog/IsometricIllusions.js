@@ -96,12 +96,12 @@ const IsometricIllusions = () => {
       if (event.metaKey) {
         setNextRotation(nextRotation - Math.PI / 2);
       } else {
-        const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
-          Point(blox.origin.x, blox.origin.y - 1, blox.origin.z),
-        );
-        if (maybeNextOrigin) {
-          setBloxOrigin(maybeNextOrigin);
-        }
+        // const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+        //   Point(blox.origin.x, blox.origin.y - 1, blox.origin.z),
+        // );
+        // if (maybeNextOrigin) {
+        //   setBloxOrigin(maybeNextOrigin);
+        // }
       }
     } else if (event.keyCode === 37) {
       // ArrowLeft
@@ -109,33 +109,33 @@ const IsometricIllusions = () => {
       if (event.metaKey) {
         setNextRotation(nextRotation + Math.PI / 2);
       } else {
-        const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
-          Point(blox.origin.x, blox.origin.y + 1, blox.origin.z),
-        );
-        if (maybeNextOrigin) {
-          setBloxOrigin(maybeNextOrigin);
-        }
+        // const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+        //   Point(blox.origin.x, blox.origin.y + 1, blox.origin.z),
+        // );
+        // if (maybeNextOrigin) {
+        //   setBloxOrigin(maybeNextOrigin);
+        // }
       }
     } else if (event.keyCode === 40) {
       // ArrowDown
-      event.preventDefault();
-      const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
-        Point(blox.origin.x - 1, blox.origin.y, blox.origin.z),
-      );
-      if (maybeNextOrigin) {
-        // moveAndRotateBlox(-1, 0);
-        setBloxOrigin(maybeNextOrigin);
-      }
+      // event.preventDefault();
+      // const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+      //   Point(blox.origin.x - 1, blox.origin.y, blox.origin.z),
+      // );
+      // if (maybeNextOrigin) {
+      //   // moveAndRotateBlox(-1, 0);
+      //   setBloxOrigin(maybeNextOrigin);
+      // }
     } else if (event.keyCode === 38) {
       // ArrowUp
-      event.preventDefault();
-      const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
-        Point(blox.origin.x + 1, blox.origin.y, blox.origin.z),
-      );
-      if (maybeNextOrigin) {
-        // moveAndRotateBlox(1, 0);
-        setBloxOrigin(maybeNextOrigin);
-      }
+      // event.preventDefault();
+      // const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
+      //   Point(blox.origin.x + 1, blox.origin.y, blox.origin.z),
+      // );
+      // if (maybeNextOrigin) {
+      //   // moveAndRotateBlox(1, 0);
+      //   setBloxOrigin(maybeNextOrigin);
+      // }
     }
   };
 
