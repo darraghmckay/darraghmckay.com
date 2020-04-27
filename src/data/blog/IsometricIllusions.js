@@ -93,7 +93,7 @@ const IsometricIllusions = () => {
     if (event.keyCode === 39) {
       // ArrowRight
       event.preventDefault();
-      if (event.metaKey) {
+      if (event.metaKey || event.ctrl) {
         setNextRotation(nextRotation - Math.PI / 2);
       } else {
         // const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
@@ -106,7 +106,7 @@ const IsometricIllusions = () => {
     } else if (event.keyCode === 37) {
       // ArrowLeft
       event.preventDefault();
-      if (event.metaKey) {
+      if (event.metaKey || event.ctrl) {
         setNextRotation(nextRotation + Math.PI / 2);
       } else {
         // const maybeNextOrigin = gameRoute.current.getEquivalentPoint(
