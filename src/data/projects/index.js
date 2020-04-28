@@ -3,6 +3,7 @@ import cascade from './cascade';
 import evinPhotography from './evinPhotography';
 import jonobo from './jonobo';
 import popUpRaces from './popUpRaces';
+import isomerRoute from './isomer-route';
 import mailcrate from './mailcrate';
 import oneProgramme from './oneProgramme';
 import spotifyAlbums from './spotifyAlbums';
@@ -16,6 +17,7 @@ export default [
   cascade,
   evinPhotography,
   jonobo,
+  isomerRoute,
   mailcrate,
   oneProgramme,
   popUpRaces,

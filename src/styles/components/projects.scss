@@ -99,13 +99,17 @@
       display: block;
       overflow: auto;
       max-width: 100%;
-      padding: 3px;
       margin: 24px auto;
       color: $color-koala;
       font-family: 'Source Code Pro', monospace;
       line-height: 20px;
-      padding: 0.2em;
+      padding: 4px;
       word-break: normal;
+
+      &.inline {
+        margin: 0;
+        padding-right: 32px;
+      }
     }
 
     sub {

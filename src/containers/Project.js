@@ -45,22 +45,25 @@ const ProjectPage = ({ project }) => {
           </div>
         )}
         <div className="splash-cover mt-6">
-          <div className="work-cover mt-0 mx-auto max-w-4xl monitorScreen">
-            <div className="browser loading">
-              <div className="status-bar">
-                <div className="buttons"></div>
-              </div>
-              <div className="tab-bar"></div>
-              <div className="window">
-                <div className="loader"></div>
-                <img
-                  alt={`${project.title} - Cover Photo`}
-                  src={project.coverImg}
-                  draggable="false"
-                />
+          {project.coverImg && (
+            <div className="work-cover mt-0 mx-auto max-w-4xl monitorScreen">
+              <div className="browser loading">
+                <div className="status-bar">
+                  <div className="buttons"></div>
+                </div>
+                <div className="tab-bar"></div>
+                <div className="window">
+                  <div className="loader"></div>
+                  <img
+                    alt={`${project.title} - Cover Photo`}
+                    src={project.coverImg}
+                    draggable="false"
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          )}
+          {project.cover && project.cover()}
         </div>
       </header>
       <div className="page-body w-full mx-auto my-12">

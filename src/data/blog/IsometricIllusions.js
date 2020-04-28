@@ -219,6 +219,10 @@ const IsometricIllusions = () => {
 
   return (
     <div className="mx-auto  text-center flex flex-col">
+      <p>
+        I'll write more on this soon, but for now use <sub>Cmd</sub>/
+        <sub>Ctrl</sub>+<sub>Right</sub> to rotate the various shapes
+      </p>
       <div id="isometric-triangle">
         <IsometricRoute
           height={300}
@@ -304,7 +308,7 @@ const IsometricIllusions = () => {
       </div>
       <div id="isometric-triangle-improved">
         <IsometricRoute
-          height={300}
+          height={600}
           width={672}
           drawRoute={route => {
             route
