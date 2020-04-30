@@ -43,6 +43,7 @@ const IsometricRoute = ({
         style={{
           height,
           width,
+          maxWidth: '100%',
         }}
       />
     </div>

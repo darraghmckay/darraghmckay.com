@@ -19,7 +19,7 @@ export default {
     <IsometricRoute
       scale={3}
       height={300}
-      width={800}
+      width={300}
       drawRoute={route => {
         route
           .setGridSize(6)

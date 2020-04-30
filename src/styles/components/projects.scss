@@ -103,8 +103,17 @@
       color: $color-koala;
       font-family: 'Source Code Pro', monospace;
       line-height: 20px;
-      padding: 4px;
       word-break: normal;
+
+      &:not(.code-block) {
+        padding: 4px;
+      }
+
+      &.code-block {
+        span, pre {
+          color: $color-koala;
+        }
+      }
 
       &.inline {
         margin: 0;
