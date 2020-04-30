@@ -218,10 +218,19 @@ const IsometricIllusions = () => {
   useEventListener('keydown', handleKeyPress);
 
   return (
-    <div className="mx-auto  text-center flex flex-col">
+    <div className="mx-auto flex flex-col">
       <p>
         I'll write more on this soon, but for now use <sub>Cmd</sub>/
         <sub>Ctrl</sub>+<sub>Right</sub> to rotate the various shapes
+      </p>
+      <p>
+        Interesting read:
+        <a
+          href="https://shaunlebron.github.io/IsometricBlocks/"
+          target="_blank"
+        >
+          Drawing isometric boxes in the correct order
+        </a>
       </p>
       <div id="isometric-triangle">
         <IsometricRoute
