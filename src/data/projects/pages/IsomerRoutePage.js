@@ -71,9 +71,9 @@ const IsomerRoutePage = () => {
       </div>
       <h4>Grid</h4>
       <p>
-        Here is the same route overlayed with a 3D grid. This is how objects
-        look under an isometric projection. The red lines show the X direction
-        and the blue lines show the Y direction
+        Here is the same route overlaid with a 3D grid. This is how objects look
+        under an isometric projection. The red lines show the X direction and
+        the blue lines show the Y direction
       </p>
       <div className="mt-2 flex flex-row flex-wrap">
         <CodeBlock
@@ -219,11 +219,11 @@ const IsomerRoutePage = () => {
         <sub>.setRotation()</sub> with some multiple of <sub>Math.PI</sub>. The
         rotation origin is defined by the the center of the grid. You can change
         the grid size by either calling <sub>.setGridSize(size)</sub> or by
-        explicitely drawing the grid with <sub>.drawGrid(size)</sub>
+        explicitly drawing the grid with <sub>.drawGrid(size)</sub>
       </p>
       <p>
-        In the examaple below, clicking the "Rotate" button will rotate the
-        shape 90deg
+        In the example below, clicking the "Rotate" button will rotate the shape
+        90deg
       </p>
       <CodeBlock
         code={`

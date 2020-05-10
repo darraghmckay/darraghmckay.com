@@ -107,9 +107,9 @@ const Permutohedron = () => {
         </p>
 
         <p>
-          You can also toggle link colors, wherby links between nodes which have
-          the same first number eg. <sub>123</sub> and <sub>132</sub> get the
-          same color. This should help you identify the solutions for
+          You can also toggle link colors, whereby links between nodes which
+          have the same first number eg. <sub>123</sub> and <sub>132</sub> get
+          the same color. This should help you identify the solutions for
           <sub>n-1</sub> in the solution for <sub>n</sub>
         </p>
         <div className="flex items-center justify-center my-4">

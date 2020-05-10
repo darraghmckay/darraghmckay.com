@@ -107,9 +107,9 @@ const IsometricIllusions = () => {
   return (
     <div className="mx-auto flex flex-col">
       <p>
-        After I finshed my last blog post,
+        After I finished my last blog post,
         <HashLink to={'/blog//permutohedron#top'}>Permutohedron</HashLink>, in
-        which I answer a math challenege posed by
+        which I answer a math challenge posed by
         <a href="https://twitter.com/anniek_p" target="_blank">
           @anniek_p
         </a>
@@ -121,7 +121,7 @@ const IsometricIllusions = () => {
         >
           #mathartchallenge
         </a>
-        . I came acros
+        . I came across
         <a
           href="https://twitter.com/anniek_p/status/1244610239019835393"
           target="_blank"
@@ -130,7 +130,7 @@ const IsometricIllusions = () => {
         </a>
         , in which she challenged people to take advantage of isometric
         qualities to create illusions, on paper. From that moment on I, and my
-        two roommates, Conor and Oisín became obsessed with programatically
+        two roommates, Conor and Oisín became obsessed with programmatically
         creating and hopefully generating isometric illusions.
       </p>
       <h3>What are isometric illusions</h3>
@@ -160,7 +160,7 @@ const IsometricIllusions = () => {
         to draw <em>impossible shapes</em> because the lines in the shapes do
         not indicate relative direction between its components. This can clearly
         be seen in the example below where the path looks like it is flat until
-        there is a column bringing the path back down to the begining. This
+        there is a column bringing the path back down to the beginning. This
         shape can only exist in the isometric world, and if it were to be built,
         it would only look like this from one very specific angle.
       </p>
@@ -185,9 +185,9 @@ const IsometricIllusions = () => {
           Isomer.js
         </a>
         , a JavaScript library for drawing isometric shapes on the HTML canvas.
-        Immediatelly this made our challenge much much easier as it had done all
+        Immediately this made our challenge much much easier as it had done all
         of the heavy lifting of drawing, shading, positioning, translating,
-        rotating and everything else we could want. Through this we could draw{' '}
+        rotating and everything else we could want. Through this we could draw
         <em>prisms</em> and paths, and through mastery of the isometric grid we
         could quickly create some very basic isometric illusions.
       </p>
@@ -261,12 +261,12 @@ const IsometricIllusions = () => {
         >
           Drawing isometric boxes in the correct order
         </a>
-        , <em>isomer-route</em> splits each block component into invididual
-        blocks, then sorts them topolically. In brief; if a given block overlaps
-        with another block, the block which is in behind must be drawn before
-        the block which is in front. And to determine whether blocks overlap,
-        and then which is in front, their isometric coordinates needed to be
-        mapped to screen coordinates. I won't go into too much detail here
+        , <em>isomer-route</em> splits each block component into individual
+        blocks, then sorts them topologically. In brief; if a given block
+        overlaps with another block, the block which is in behind must be drawn
+        before the block which is in front. And to determine whether blocks
+        overlap, and then which is in front, their isometric coordinates needed
+        to be mapped to screen coordinates. I won't go into too much detail here
         because of how well its articulated in the above article.
       </p>
       <p>
@@ -274,8 +274,8 @@ const IsometricIllusions = () => {
         was the <em>conundrum</em> defined in the above article. Where groups of
         blocks, if left as groups, would create a cyclic-dependency, where part
         of block A is behind block B, and part of block B is behind block C and
-        part of block C is behind block A. As mentioned in the artlce, the
-        solution is to simply draw blocks of groups as independant invividual
+        part of block C is behind block A. As mentioned in the article, the
+        solution is to simply draw blocks of groups as independent individual
         blocks. The final product is below
       </p>
       <div id="isometric-conundrum" className="my-4">
@@ -301,7 +301,7 @@ const IsometricIllusions = () => {
         As I figured out how to correctly draw the shapes, and how to build the
         API to properly support it I began to experiment with more advanced
         examples, getting back to the original task at hand; drawing isometric
-        illusions. Myself and my roomates had also since downloaded both
+        illusions. Myself and my roommates had also since downloaded both
         versions of
         <a href="https://www.monumentvalleygame.com/" target="_blank">
           Monument Valley
@@ -317,7 +317,7 @@ const IsometricIllusions = () => {
         best are done.
       </p>
       <p>
-        Below is the simple illusion you saw in the begining, it looks quite
+        Below is the simple illusion you saw in the beginning, it looks quite
         like a rotated version of the
         <a
           href="https://en.wikipedia.org/wiki/Penrose_triangle"
@@ -328,7 +328,7 @@ const IsometricIllusions = () => {
         , but it's not as good because the vertical column doesn't line up as
         nicely with the front path, although the illusion is still effective,
         it's not as good, at least compared to the example on the right, where
-        the veritcal column connects perfectly to the front path.
+        the vertical column connects perfectly to the front path.
       </p>
       <div className="flex flex-wrap my-4 items-center space-between">
         <IsometricRoute
@@ -492,7 +492,7 @@ const IsometricIllusions = () => {
         The below is a route that's very similar to the first level in Monument
         Valley. Which demonstrates that it's not always the world that needs to
         rotate in order to create paths which previously don't look possible,
-        but instead various elements can rotate, such as the dark green blocks.{' '}
+        but instead various elements can rotate, such as the dark green blocks.
         <em>
           Note: there are still some bugs in figuring out where the red block
           can and can't move to
