@@ -143,7 +143,7 @@ const IsometricIllusions = () => {
       <div id="isometric-example" className="my-2">
         <IsometricRoute
           height={200}
-          width={672}
+          width={300}
           scale={2}
           drawRoute={route => {
             route
@@ -167,7 +167,7 @@ const IsometricIllusions = () => {
       <div id="isometric-triangle">
         <IsometricRoute
           height={200}
-          width={672}
+          width={300}
           drawRoute={route => {
             route
               .setGridSize(6)
@@ -281,7 +281,7 @@ const IsometricIllusions = () => {
       <div id="isometric-conundrum" className="my-4">
         <IsometricRoute
           height={200}
-          width={672}
+          width={300}
           scale={2}
           drawRoute={route => {
             route
@@ -384,7 +384,7 @@ const IsometricIllusions = () => {
       <div id="isometric-floating-blocks" className="my-4">
         <IsometricRoute
           height={200}
-          width={672}
+          width={300}
           scale={2}
           drawRoute={route => {
             route
@@ -405,7 +405,7 @@ const IsometricIllusions = () => {
       <div id="isometric-extrusions">
         <IsometricRoute
           height={300}
-          width={672}
+          width={300}
           scale={3}
           drawRoute={route => {
             route
@@ -503,7 +503,7 @@ const IsometricIllusions = () => {
           bloxOrigin={Point(-7, -8, 11)}
           scale={4}
           height={500}
-          width={672}
+          width={350}
           drawRoute={route => {
             route
               .setRotation(rotateRoutes ? rotation : 0)
@@ -553,7 +553,7 @@ const IsometricIllusions = () => {
           bloxOrigin={Point(-5, -5, 6)}
           scale={4}
           height={500}
-          width={672}
+          width={350}
           drawRoute={route => {
             route
               .setRotation(rotateRoutes ? rotation : 0)
@@ -585,7 +585,7 @@ const IsometricIllusions = () => {
         <IsometricRoute
           scale={4}
           height={600}
-          width={672}
+          width={350}
           drawRoute={route => {
             route
               .setRotation(rotateRoutes ? rotation : 0)
