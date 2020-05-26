@@ -8,16 +8,16 @@ export default [
     percentage: 80,
   },
   {
+    name: 'Vue.js',
+    percentage: 70,
+  },
+  {
     name: 'Java',
     percentage: 60,
   },
   {
     name: 'Python',
     percentage: 60,
-  },
-  {
-    name: 'Android Developmen (Native)',
-    percentage: 50,
   },
   {
     name: 'CSS / SASS',

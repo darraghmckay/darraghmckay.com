@@ -57,7 +57,13 @@ const Skills = () => {
           </div>
         </div>
         <div className="mt-8 w-full flex flex-row justify-center">
-          <button className="light">Download CV</button>
+          <a
+            className="button light"
+            href="https://drive.google.com/file/d/0B4fJA5v2VjGfX09RODJjNUw5Ync/view?usp=sharing"
+            target="_blank"
+          >
+            Download CV
+          </a>
         </div>
       </div>
     </div>
