@@ -2,12 +2,12 @@ export default [
   {
     title: 'Frontend Software Engineer',
     subTitle: 'Inscribe AI, Dublin',
-    dateRange: 'January 2019 - Present',
+    dateRange: 'January 2020 - Present',
   },
   {
     title: 'Frontend Software Engineer',
     subTitle: 'HubSpot, Dublin',
-    dateRange: 'August 2018 - January 2019',
+    dateRange: 'August 2018 - January 2020',
   },
   {
     title: 'Software Engineering Co-Op',
