@@ -29,11 +29,11 @@ const Tailwind = () => {
         <h4>Why me</h4>
         <p>
           I'm a full stack software developer, with a preference for the
-          frontend, with a passion for product development and attention to
-          detail. I have 8+ years of experience building full stack websites,
-          webapps and mobile apps both professionally and in my spare time. I'm
-          a fast learner and a motivated worker with a keen interest in all
-          things technology, design and frontend.
+          frontend, a passion for product development and attention to detail. I
+          have 8+ years of experience building full stack websites, webapps and
+          mobile apps both professionally and in my spare time. I'm a fast
+          learner and a motivated worker with a keen interest in all things
+          technology, design and frontend.
         </p>
         <p>
           In my spare time, more than anything else, I love to build things. I
