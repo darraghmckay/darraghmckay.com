@@ -623,7 +623,7 @@ export default [
     body: () => (
       <React.Fragment>
         <p>
-          Yesterday I wantd a distraction so I decided to go oevr to
+          Yesterday I wanted a distraction so I decided to go over to
           dribbble.com to find some inspiration for an animation I could
           <strong>recreate</strong>in HTML and CSS. It's Called the Early Bird,
           one birds struggle to catch his worm. Here's the original
@@ -658,13 +658,26 @@ export default [
           my limits of what I could do with SASS animations before.
         </p>
         <p
-          data-height="504"
-          data-theme-id="0"
-          data-slug-hash="GoRwWB"
+          className="codepen"
+          data-height="500"
+          data-theme-id="light"
           data-default-tab="result"
           data-user="darrraghmckay"
-          className="codepen"
-        />
+          data-slug-hash="GoRwWB"
+          style={{ height: '500px' }}
+          data-pen-title="The Early Bird"
+        >
+          <span>
+            See the Pen
+            <a href="https://codepen.io/darrraghmckay/pen/GoRwWB">
+              The Early Bird
+            </a>
+            by Darragh Mc Kay (
+            <a href="https://codepen.io/darrraghmckay">@darrraghmckay</a>) on
+            <a href="https://codepen.io">CodePen</a>.
+          </span>
+        </p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js" />
       </React.Fragment>
     ),
   },
@@ -1270,13 +1283,29 @@ export default [
 
         <p>I had fun doing this, so I might even make it a seasonal thing</p>
         <p
-          data-height="468"
-          data-theme-id="0"
-          data-slug-hash="MwwReo"
+          className="codepen"
+          data-height="500"
+          data-theme-id="light"
           data-default-tab="result"
           data-user="darrraghmckay"
-          className="codepen"
-        />
+          data-slug-hash="MwwReo"
+          style={{ height: '500px' }}
+          data-pen-title="Valentines Card - CSS Only "
+        >
+          <span>
+            See the Pen
+            <a href="https://codepen.io/darrraghmckay/pen/MwwReo">
+              Valentines Card - CSS Only
+            </a>
+            by Darragh Mc Kay (
+            <a href="https://codepen.io/darrraghmckay">@darrraghmckay</a>) on
+            <a href="https://codepen.io">CodePen</a>.
+          </span>
+        </p>
+        <script
+          async
+          src="https://static.codepen.io/assets/embed/ei.js"
+        ></script>
       </React.Fragment>
     ),
   },

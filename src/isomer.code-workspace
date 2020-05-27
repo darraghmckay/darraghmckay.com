@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../isomer"
+		},
+		{
+			"path": "../../isomer-route"
+		},
+		{
+			"path": "../../IsometricBlocks"
+		}
+	],
+	"settings": {}
+}

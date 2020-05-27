@@ -10,6 +10,7 @@ import HomePage from './containers/HomePage';
 import NotFoundPage from './containers/NotFoundPage';
 import projects from './data/projects';
 import blogEntries from './data/blog';
+import Tailwind from './components/Tailwind';
 
 const App = () => (
   <div className="flex flex-col min-h-screen justify-between items-center">
@@ -32,6 +33,7 @@ const App = () => (
           />
         ))}
         <Route path="/blog" exact={true} component={BlogListPage} />
+        <Route path="/tailwind" exact={true} component={Tailwind} />
         <Route path="/" exact={true} component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>
