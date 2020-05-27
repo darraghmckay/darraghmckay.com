@@ -16,6 +16,15 @@
   header {
     min-height: 50vh;
   }
+
+  .tailwind header {
+    min-height: 400px;
+
+    .splash-cover {
+      height: 400px;
+      padding-top: 0 !important;
+    }
+  }
 }
 
 .rekt-text {
