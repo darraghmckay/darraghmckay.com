@@ -30,8 +30,8 @@ const Tailwind = () => {
         <p>
           I'm a full stack software developer, with a preference for the
           frontend, a passion for product development and attention to detail. I
-          have 8+ years of experience building full stack websites, webapps and
-          mobile apps both professionally and in my spare time. I'm a fast
+          have 8+ years of experience building full stack websites, webapps,
+          mobile apps and startups both professionally and for fun. I'm a fast
           learner and a motivated worker with a keen interest in all things
           technology, design and frontend.
         </p>
@@ -79,12 +79,12 @@ const Tailwind = () => {
           <a href="https://inscribe.ai/" target="_blank">
             Inscribe
           </a>
-          , a small startup of only 9 people spread across Dublin and San
-          Fransico. In my short 4 months at Inscribe, I have lead the redesign
-          and roll out of the primary pages in the product (in Vue), developed
-          UI components to make the app interface more consistent and moved our
-          frontend project out of a Django/Docker deployment and onto a
-          Cloudfront backed CDN with
+          , in Dublin, a small AI startup of only 9 people spread across Dublin
+          and San Fransico. In my short 4 months at Inscribe, I have lead the
+          redesign and roll out of the primary pages in the product (in Vue),
+          developed UI components to make the app interface more consistent and
+          moved our frontend project out of a Django/Docker deployment and onto
+          a Cloudfront backed CDN with
           <a
             href="https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/"
             target="_blank"
@@ -105,7 +105,7 @@ const Tailwind = () => {
           developing a rather complicated feedback survey editor and response
           management system. As HubSpot is based in Boston, I am more than
           familiar with working in teams where all or a large part of the team
-          are on Eastern time.
+          are on Eastern time while I am in Dublin.
         </p>
         <p>In my spare time, I have used Tailwind CSS to;</p>
         <ul>
