@@ -22,7 +22,7 @@ const introItems = [
   {
     icon: faCode,
     title: 'Software Engineer',
-    subTitle: 'Hubspot, Dublin',
+    subTitle: 'Inscribe, Dublin',
   },
 ];
 
