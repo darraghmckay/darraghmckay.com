@@ -15,7 +15,7 @@ const ProjectPage = ({ project }) => {
             {project.href && (
               <a
                 className="button"
-                href={project.href}
+                href={`${project.href}?ref=darraghmckay`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

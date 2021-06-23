@@ -5,6 +5,7 @@ import jonobo from './jonobo';
 import popUpRaces from './popUpRaces';
 import isomerRoute from './isomer-route';
 import mailcrate from './mailcrate';
+import noloco from './noloco';
 import oneProgramme from './oneProgramme';
 import spotifyAlbums from './spotifyAlbums';
 import tes from './tes';
@@ -19,6 +20,7 @@ export default [
   jonobo,
   isomerRoute,
   mailcrate,
+  noloco,
   oneProgramme,
   popUpRaces,
   spotifyAlbums,
