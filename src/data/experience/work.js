@@ -1,8 +1,13 @@
 export default [
   {
-    title: 'Frontend Software Engineer',
+    title: 'Co-founder & CTO',
+    subTitle: 'Noloco, Dublin',
+    dateRange: 'April 2021 - Present',
+  },
+  {
+    title: 'Fullstack Software Engineer',
     subTitle: 'Inscribe AI, Dublin',
-    dateRange: 'January 2020 - Present',
+    dateRange: 'January 2020 - June 2021',
   },
   {
     title: 'Frontend Software Engineer',
