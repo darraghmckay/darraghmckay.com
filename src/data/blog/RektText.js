@@ -45,7 +45,7 @@ const RektText = () => {
         <a href="https://oisinmoran.com" tagret="_blank">
           Oisin Moran
         </a>
-        <span>, my room-mate, and coleague at</span>
+        <span>, my room-mate, and (ex-)coleague at</span>
         <a href="https://inscribe.ai" target="_blank">
           Inscribe
         </a>

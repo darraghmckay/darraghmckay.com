@@ -4,40 +4,80 @@ import img from '../../imgs/noloco.png';
 import coverImg from '../../imgs/noloco-cover.png';
 
 export default {
-  title: 'noloco.io',
-  subTitle: 'Build truly custom web apps.\n' +
-    'Without Code.',
+  title: 'Noloco',
+  subTitle: 'Build internal tools for your team without code',
   path: 'noloco',
   href: 'https://noloco.io',
   img,
   coverImg,
-  color: '#111826',
+  color: '#1e293b',
   createdAt: '2021-01-01',
   category: WEB_DEVELOPMENT,
   body: () => (
     <div>
       <h3>
         <em>
-          The complete no-code solution for professionals.
+          Easily create internal tools in minutes that perfectly fit your
+          workflows without writing a line of code..
         </em>
       </h3>
       <p>
-        Developing a web app is hard - but it doesn’t have to be.
+        Noloco provides everything your team needs to build internal tools.
+        There's no code and no problem.
         <br />
-        Noloco looks after all the boring parts like authentication and API creation so that you can focus on what matters most - making your project unique.
       </p>
-      <h4>Your data, your way</h4>
-      <p>Model your data however you want. Easily add collections and define relationships between them all on our built-in database. Import your data or start from scratch with dedicated client CMS functionality.</p>
+      <h4>Instant apps from your data</h4>
+      <p>
+        Once you connect your data source like Airtable, PostgreSQL, MySQL or
+        Google Sheets, Noloco instantly builds an app for you that enables your
+        team to easily view, update and add new data.
+      </p>
+      <p>
+        From there, you can easily customise your app with our drag and drop
+        editor without writing a line of code.
+      </p>
 
-      <h4>Dream it, design it</h4>
-      <p>You're in full control of your design. Start from scratch or drag in ready-made blocks. With our responsive builder, you can ensure that your app is pixel perfect across all screen sizes.</p>
+      <h4>For non-developers</h4>
+      <p>
+        Noloco is the first no-code builder designed from the ground up for
+        non-developers. No writing complex queries.
+      </p>
+      <p>
+        Free up your engineering resources and move faster by enabling your
+        Operations, Growth & Support teams to build the tools they need on their
+        own.
+      </p>
 
-      <h4>Supercharge your app with actions & automations</h4>
-      <p>Allow your users to trigger complex workflows that can create and update data, hit external APIs, send emails or trigger third-party automations like Zapier or Integromat.</p>
+      <h4>What can I build with Noloco?</h4>
+      <p>
+        Our customers have built hundreds of internal tools with Noloco
+        including backoffice tools, project management tools & custom CRMS. All
+        without writing a single line of code.
+      </p>
 
-      <h4>Deploy your app in one click</h4>
-      <p>Your apps are hosted on the Noloco cloud. Preview changes in your personal sandbox before launching. And when you’re ready to go, connect your custom domain to showcase your project.</p>
-
+      <h4>Create internal tools from your data</h4>
+      <p>
+        Instantly build internal tools from your data in Postgres, Airtable and
+        Google Sheets. Use our Zapier and Make integrations to send data between
+        Noloco and all your other software tools.
+      </p>
+      <h4>Why use Noloco?</h4>
+      <p>
+        Noloco is a fit if you want to:
+        <ul>
+          <li>
+            Give your team access to data for them to analyse, view or update{' '}
+          </li>
+          <li>
+            Keep tight control over user access and who can see and update
+            certain data
+          </li>
+          <li>
+            Build internal tools without having to hire developers or distract
+            your developers from building customer-facing products
+          </li>
+        </ul>
+      </p>
       <br />
       <a
         className="button"

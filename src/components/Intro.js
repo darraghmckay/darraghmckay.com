@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCode,
-  faBicycle,
   faGraduationCap,
+  faRunning,
 } from '@fortawesome/free-solid-svg-icons';
 import RectText from './RectText';
 import { useInterval } from '../utils/hooks';
 
 const introItems = [
   {
-    icon: faGraduationCap,
-    title: 'Computer Engineering',
-    subTitle: 'Trinity College Dublin',
+    icon: faCode,
+    title: 'CTO',
+    subTitle: 'Noloco, Dublin',
   },
   {
-    icon: faBicycle,
-    title: 'Casual Cyclist',
+    icon: faRunning,
+    title: 'Casual Runner',
     subTitle: '& Gym-goer',
   },
   {
-    icon: faCode,
-    title: 'Software Engineer',
-    subTitle: 'Inscribe, Dublin',
+    icon: faGraduationCap,
+    title: 'Computer Engineering',
+    subTitle: 'Trinity College Dublin',
   },
 ];
 
