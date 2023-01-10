@@ -6,7 +6,7 @@ export default [
   },
   {
     title: 'Fullstack Software Engineer',
-    subTitle: 'Inscribe AI, Dublin',
+    subTitle: 'Noloco AI, Dublin',
     dateRange: 'January 2020 - June 2021',
   },
   {
